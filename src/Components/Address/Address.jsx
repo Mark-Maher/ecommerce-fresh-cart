@@ -21,9 +21,10 @@ function Address() {
     setloading(true);
     let data = await payForOrder(cartId, values);
     if (data?.status === "success" && isOnlinePayment) {
+      console.log(data.session.url);
       window.location.href = data.session.url;
+      // navigate("/allorders");
     } else if (data?.status === "success" && !isOnlinePayment) {
-      navigate("/allorders");
       let timerInterval;
       Swal.fire({
         title: "Purchase Is Complete",
