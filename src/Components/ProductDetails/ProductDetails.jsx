@@ -16,9 +16,9 @@ function ProductDetails() {
     console.log("data", data);
 
     if (data.status === "success") {
-      toast.success(data.message);
+      toast.success(data.message, {theme: "colored"});
     } else {
-      toast.error("failed to add product");
+      toast.error("failed to add product", {theme: "colored"});
     }
   }
 
