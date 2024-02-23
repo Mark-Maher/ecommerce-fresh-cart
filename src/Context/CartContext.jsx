@@ -79,7 +79,7 @@ export default function CartContextProvider({children}) {
       const response = await axios.post(
         payEndPoint +
           cartID +
-          "?url=https://ecommerce-fresh-cart-flax.vercel.app/allorders",
+          "?url=https://ecommerce-fresh-cart-flax.vercel.app/",
         {shippingAddress},
         {
           headers: {token: userToken},
