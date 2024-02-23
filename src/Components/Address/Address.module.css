@@ -1,0 +1,15 @@
+.Address {
+}
+.addressForm {
+  width: 50%;
+  margin: auto;
+  padding: 10px;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .addressForm {
+    width: 100% !important;
+  }
+}

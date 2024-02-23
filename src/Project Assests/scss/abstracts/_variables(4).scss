@@ -1,0 +1,72 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
+
+/// Regular font family
+/// @type List
+$text-font: "Encode Sans Expanded", sans-serif !default;
+
+/// Code (monospace) font family
+/// @type List
+$code-font: "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+  "Monaco", monospace !default;
+
+/// Copy title color
+/// @type Color
+$title-color: #212529 !default;
+
+/// Copy text color
+/// @type Color
+$text-color: #6c757d !default;
+
+/// Main brand color
+/// @type Color
+$brand-color: #08ac0a !default;
+
+/// Light grey
+/// @type Color
+$light-grey: #f0f3f2 !default;
+
+/// White
+/// @type Color
+$white-color: #fff !default;
+
+/// Yellow
+/// @type Color
+$yellow-color: #ffc906 !default;
+
+$shadow: rgba(
+      $color: #919eab,
+      $alpha: 0.2,
+    )
+    0px 2px 4px -1px,
+  rgba(
+      $color: #919eab,
+      $alpha: 0.14,
+    )
+    0px 4px 5px 0px,
+  rgba(
+      $color: #919eab,
+      $alpha: 0.12,
+    )
+    0px 1px 10px 0px;
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1180px !default;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  "small": 320px,
+  "medium": 768px,
+  "large": 1024px,
+) !default;
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'https://cdn.example.com/assets/';
+$base-url: "/assets/" !default;
