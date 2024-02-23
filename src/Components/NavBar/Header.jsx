@@ -69,6 +69,10 @@ function NavBar() {
               <Nav.Link as={NavLink} to={"brands"}>
                 Brands
               </Nav.Link>{" "}
+              <Nav.Link as={NavLink} to={"allorders"}>
+                All Orders{" "}
+                <i className='fa-solid fa-bag-shopping fs-5 ms-1'></i>
+              </Nav.Link>{" "}
               <Nav.Link
                 as={NavLink}
                 to={"wishlist"}

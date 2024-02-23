@@ -5,6 +5,7 @@ import axios from "axios";
 import {date} from "yup";
 import {jwtDecode} from "jwt-decode";
 import Loader from "../Loader/Loader";
+import {Link} from "react-router-dom";
 function MyOrders() {
   let [orderData, setOrederData] = useState([]);
   let [loading, setLoading] = useState(false);
@@ -15,7 +16,9 @@ function MyOrders() {
     let {data} = await axios.get(
       `https://ecommerce.routemisr.com/api/v1/orders/user/${id}`
     );
+    console.log(data.length);
     setOrederData(data);
+
     setLoading(false);
   }
 
@@ -27,9 +30,25 @@ function MyOrders() {
     <>
       {loading ? (
         <Loader />
+      ) : orderData?.length === 0 ? (
+        <div className='text-center my-5 py-5'>
+          {" "}
+          <h2 className='text-center my-5 text-main py-4'>
+            There is not products in your orders list , you can continue
+            shopping from .
+          </h2>
+          <Link
+            to={"/products"}
+            className='btn btn-success py-3 text-white fw-bolder'
+          >
+            Go to our products
+          </Link>
+        </div>
       ) : (
         <div className='container my-5 bg-main-light p-5 rounded-3'>
-          <h2 className='text-center fs-1 fw-bold mb-5'>My Orders</h2>
+          <h2 className='fs-1 fw-bold my-2 text-main pb-5 text-center'>
+            My Orders
+          </h2>
           {orderData?.map((order, index) => (
             <div key={index}>
               <div className='row align-items-start border-bottom g-2'>

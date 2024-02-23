@@ -117,7 +117,7 @@ function Cart() {
           <div className='d-flex justify-content-between align-items-center'>
             {" "}
             <div>
-              <h2>Shop Cart:</h2>
+              <h2 className='fs-1 fw-bold my-2 text-main pb-3'>Shop Cart:</h2>
               <p className='text-main fw-bold'>
                 Total Cart Price :{" "}
                 {data?.data.totalCartPrice ? data.data.totalCartPrice : 0}
