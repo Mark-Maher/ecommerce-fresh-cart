@@ -33,9 +33,9 @@ function App() {
       setToken(localStorage.getItem("user"));
     }
   }, []);
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
   const routes = createBrowserRouter([
     {
       path: "",

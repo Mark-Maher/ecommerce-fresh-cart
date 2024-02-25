@@ -385,6 +385,10 @@ body {
   padding-top: 110px;
   border-radius: 20px !important;
 }
+.slick-prev,
+.slick-next {
+  display: none !important;
+}
 
 @media (max-width: 991px) {
   .main-slider {

@@ -62,7 +62,6 @@ function FeatureProducts() {
         {isError && <div className='alert alert-danger'>{error}</div>}
 
         <div className='container'>
-          {" "}
           <Offerbanner />
           <ProductSale />
           <TrendingProducts />
