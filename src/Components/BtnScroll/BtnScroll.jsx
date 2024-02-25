@@ -36,6 +36,7 @@ export default function BtnScroll() {
           >
             <div className='icon'>
               <svg
+                className='text-black'
                 height='24'
                 width='24'
                 viewBox='0 0 24 24'
