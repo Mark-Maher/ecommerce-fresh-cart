@@ -60,9 +60,10 @@ function FeatureProducts() {
         {isLoading && <Loader />}
         {loading && <Loader />}
         {isError && <div className='alert alert-danger'>{error}</div>}
-        {/* <Offerbanner /> */}
+
         <div className='container'>
           {" "}
+          <Offerbanner />
           <ProductSale />
           <TrendingProducts />
           <BestSales />
