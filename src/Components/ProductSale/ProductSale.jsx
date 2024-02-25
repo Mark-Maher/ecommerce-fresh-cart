@@ -91,103 +91,55 @@ function ProductSale() {
   }, []);
   return (
     <>
-      <section className='product-sale mb-6'>
-        <div className='container'>
-          <div className='row shadow position-relative'>
-            {/* Img */}
-            <div className='sale '>
-              <p
-                // data-aos='fade-down'
-                // data-aos-duration='1000'
-                className='text-white'
-              >
-                Up to 50% Off
-              </p>
-            </div>
-            <div className=' shadow d-flex justify-content-evenly flex-wrap '>
-              <div className='image  py-5'>
-                <img
-                  src={require("../../Project Assests/images/1678304764905-cover.jpeg")}
-                  alt='dell'
-                  // className='w-100'
-                  // data-aos='fade-right'
+      <div className='container'>
+        {" "}
+        <section className='product-sale mb-6'>
+          <div className='container'>
+            <div className='row shadow position-relative'>
+              {/* Img */}
+              <div className='sale '>
+                <p
+                  // data-aos='fade-down'
                   // data-aos-duration='1000'
-                ></img>
+                  className='text-white'
+                >
+                  Up to 50% Off
+                </p>
               </div>
-              <div className='info py-5'>
-                {/* Sale */}
-
-                {/* Title */}
-                <div className='product-data '>
-                  {data?.slice(34, 35).map((product) => (
-                    <div key={product.id}>
-                      <h2>{product.title.split(" ").splice(0, 2).join(" ")}</h2>
-                      <div className='price'>
-                        <p
-                          className='old-price'
-                          // data-aos='fade-right'
-                          // data-aos-duration='1000'
-                        >
-                          {" "}
-                          EGY {product.price * 2}{" "}
-                        </p>
-                        <p
-                          className='new-price'
-                          // data-aos='fade-right'
-                          // data-aos-duration='1000'
-                        >
-                          {" "}
-                          EGY {product.price}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                  <h4>Limited Time Offer</h4>
+              <div className=' shadow d-flex justify-content-evenly flex-wrap '>
+                <div className='image  py-5'>
+                  <img
+                    src={require("../../Project Assests/images/1678304764905-cover.jpeg")}
+                    alt='dell'
+                  ></img>
                 </div>
+                <div className='info py-5'>
+                  <div className='product-data '>
+                    {data?.slice(34, 35).map((product) => (
+                      <div key={product.id}>
+                        <h2>
+                          {product.title.split(" ").splice(0, 2).join(" ")}
+                        </h2>
+                        <div className='price'>
+                          <p className='old-price'> EGY {product.price * 2} </p>
+                          <p className='new-price'> EGY {product.price}</p>
+                        </div>
+                      </div>
+                    ))}
+                    <h4>Limited Time Offer</h4>
+                  </div>
 
-                {/* Date */}
-                {/* <div className='date shadow'>
-                  <div>
-                    <span>{days}</span>
-                    <span data-aos='fade-up' data-aos-duration='1000'>
-                      Days
-                    </span>
+                  <div className='btns'>
+                    <Link to={`/product-details/6408da1c6406cd15828e8f0a`}>
+                      <button>Show Now</button>
+                    </Link>
                   </div>
-                  <span className='dot'>:</span>
-                  <div>
-                    <span>{hours}</span>
-                    <span data-aos='fade-down' data-aos-duration='1000'>
-                      Hours
-                    </span>
-                  </div>
-                  <span className='dot'>:</span>
-
-                  <div>
-                    <span>{minutes}</span>
-                    <span data-aos='fade-up' data-aos-duration='1000'>
-                      Minutes
-                    </span>
-                  </div>
-                  <span className='dot'>:</span>
-
-                  <div>
-                    <span>{seconds}</span>
-                    <span data-aos='fade-down' data-aos-duration='1000'>
-                      Seconds
-                    </span>
-                  </div>
-                </div> */}
-                {/* Btn */}
-                <div className='btns'>
-                  <Link to={`/product-details/6408da1c6406cd15828e8f0a`}>
-                    <button>Show Now</button>
-                  </Link>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 }
