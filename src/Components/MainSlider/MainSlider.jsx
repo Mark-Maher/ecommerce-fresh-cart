@@ -28,7 +28,7 @@ function MainSlider() {
                   <img src={img2} alt='' className='w-100' />
                 </Slider>
               </div>
-              <div className='col-md-4'>
+              <div className='col-md-4 animate__animated animate__fadeInRight'>
                 <img src={img1} alt='' className='w-100' />
                 <img src={img2} alt='' className='w-100' />
               </div>
