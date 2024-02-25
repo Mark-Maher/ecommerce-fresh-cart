@@ -23,6 +23,8 @@ function Cart() {
   let [loading, setLoading] = useState(false);
 
   let [clearloading, setClearLoading] = useState(false);
+  let [deleteLoading, setDeleteLoading] = useState(false);
+
   async function clearallcart() {
     setClearLoading(true);
     try {
@@ -70,12 +72,14 @@ function Cart() {
     setData();
   }, []);
   async function deleteProduct(id) {
+    setDeleteLoading(true);
     let data = await deleteItem(id);
     console.log(data);
     if (data.status === "success") {
       toast.error("Product deleted successfully", {theme: "colored"});
       setNumOfCartItems(data.numOfCartItems);
       setData(data);
+      setDeleteLoading(false);
     }
   }
   async function updateProduct(id, count) {
@@ -160,11 +164,12 @@ function Cart() {
                     </p>
                     <button
                       className='btn btn-danger'
-                      onClick={() => {
+                      onClick={(e) => {
                         deleteProduct(item.product._id);
                       }}
                     >
-                      <i className='fa-regular fa-trash-can me-2'></i> Remove
+                      <i className='fa-regular fa-trash-can me-2'></i>
+                      Remove
                     </button>
                   </div>
                   <div className='d-flex justify-content-between'>

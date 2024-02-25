@@ -98,8 +98,6 @@ export default function CartContextProvider({children}) {
         {productId},
         {headers: {token: userToken}}
       );
-      console.log(response.data);
-      // setNumOfWishList(response?.data.numOfCartItems);
       return response.data;
     } catch (error) {
       console.error("Error adding product to cart:", error);

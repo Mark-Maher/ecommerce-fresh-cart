@@ -7,11 +7,12 @@ import {Link} from "react-router-dom";
 import {cartContext} from "../../Context/CartContext";
 import {toast} from "react-toastify";
 import {Nav} from "react-bootstrap/Nav";
+import {Spinner} from "react-bootstrap";
 
 function FeatureProducts() {
   let [searchData, setSearchData] = useState("");
   let [loading, setLoading] = useState(false);
-
+  let [wordCategory, setWordCategory] = useState("All's");
   let [heartColor, setHeartColor] = useState(false);
   const {addToCart, addToWishlist, wishlist, getToWishlist} =
     useContext(cartContext);
@@ -23,15 +24,18 @@ function FeatureProducts() {
       toast.error("failed to add product", {theme: "colored"});
     }
   }
-
+  function handleCategory(category) {
+    setWordCategory(category);
+  }
+  console.log(wordCategory);
   async function addProductToWishlist(Id) {
+    setLoading(true);
+    refetch();
     let data = await addToWishlist(Id);
     if (data.status === "success") {
       getToWishlist();
+      setLoading(false);
       toast.success(data.message, {theme: "colored"});
-      console.log(data.data);
-
-      // refetch();
     } else {
       toast.error("failed to add product", {theme: "colored"});
       setHeartColor(false);
@@ -41,21 +45,57 @@ function FeatureProducts() {
   function getProducts() {
     return axios.get(`https://ecommerce.routemisr.com/api/v1/products`);
   }
-  let {data, isError, isLoading, error, isFetching} = useQuery(
+  let {data, isError, isLoading, error, isFetching, refetch} = useQuery(
     "FeatureProducts",
     getProducts
   );
-
+  console.log(data?.data.data);
   return (
     <>
       <section className='py-5'>
         {isLoading && <Loader />}
-
+        {loading && <Loader />}
         {isError && <div className='alert alert-danger'>{error}</div>}
 
         {data?.data.data && (
           <div className='container'>
             <h2 className='fs-1 fw-bold my-2 text-main pb-3'>Products</h2>
+            <div className='d-flex justify-content-evenly my-5'>
+              {" "}
+              <span
+                className={`${styles.categoryLink} text-main fw-bolder ms-2  `}
+                onClick={(e) => {
+                  handleCategory(e.target.innerHTML);
+                }}
+              >
+                All's
+              </span>
+              <span
+                className={`${styles.categoryLink} text-main fw-bolder ms-2  `}
+                onClick={(e) => {
+                  handleCategory(e.target.innerHTML);
+                }}
+              >
+                Men's Fashion
+              </span>
+              <span
+                className={`${styles.categoryLink} text-main fw-bolder ms-2  `}
+                onClick={(e) => {
+                  handleCategory(e.target.innerHTML);
+                }}
+              >
+                Women's Fashion
+              </span>
+              <span
+                className={`${styles.categoryLink} text-main fw-bolder ms-2  `}
+                onClick={(e) => {
+                  handleCategory(e.target.innerHTML);
+                }}
+              >
+                Electronics
+              </span>
+            </div>
+
             <input
               type='search'
               className='my-5 w-100 py-2 mx-auto form-control'
@@ -72,6 +112,11 @@ function FeatureProducts() {
                     : product.title
                         .toLowerCase()
                         .includes(searchData.toLowerCase());
+                })
+                .filter((product) => {
+                  return wordCategory === "All's"
+                    ? product
+                    : product.category.name === wordCategory;
                 })
                 .map((product) => {
                   return (
