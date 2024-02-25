@@ -8,6 +8,10 @@ import {cartContext} from "../../Context/CartContext";
 import {toast} from "react-toastify";
 import {Nav} from "react-bootstrap/Nav";
 import {Spinner} from "react-bootstrap";
+import TrendingProducts from "./../TrendingProducts/TrendingProducts";
+import BestSales from "../BestSales/BestSales";
+import Offerbanner from "../Offerbanner/Offerbanner";
+import ProductSale from "../ProductSale/ProductSale";
 
 function FeatureProducts() {
   let [searchData, setSearchData] = useState("");
@@ -56,14 +60,20 @@ function FeatureProducts() {
         {isLoading && <Loader />}
         {loading && <Loader />}
         {isError && <div className='alert alert-danger'>{error}</div>}
-
+        <Offerbanner />
+        <div className='container'>
+          {" "}
+          <ProductSale />
+        </div>
+        <TrendingProducts />
+        <BestSales />
         {data?.data.data && (
           <div className='container'>
-            <h2 className='fs-1 fw-bold my-2 text-main pb-3'>Products</h2>
+            <h2 className='fs-1 fw-bold my-2 pb-3 subtitleName'>Products</h2>
             <div className='d-flex justify-content-evenly my-5'>
               {" "}
               <span
-                className={`${styles.categoryLink} text-main fw-bolder ms-2  `}
+                className={`${styles.categoryLink}  fw-bolder ms-2  subtitleName`}
                 onClick={(e) => {
                   handleCategory(e.target.innerHTML);
                 }}
@@ -71,7 +81,7 @@ function FeatureProducts() {
                 All's
               </span>
               <span
-                className={`${styles.categoryLink} text-main fw-bolder ms-2  `}
+                className={`${styles.categoryLink}  fw-bolder ms-2  subtitleName`}
                 onClick={(e) => {
                   handleCategory(e.target.innerHTML);
                 }}
@@ -79,7 +89,7 @@ function FeatureProducts() {
                 Men's Fashion
               </span>
               <span
-                className={`${styles.categoryLink} text-main fw-bolder ms-2  `}
+                className={`${styles.categoryLink}  fw-bolder ms-2  subtitleName`}
                 onClick={(e) => {
                   handleCategory(e.target.innerHTML);
                 }}
@@ -87,7 +97,7 @@ function FeatureProducts() {
                 Women's Fashion
               </span>
               <span
-                className={`${styles.categoryLink} text-main fw-bolder ms-2  `}
+                className={`${styles.categoryLink}  fw-bolder ms-2  subtitleName`}
                 onClick={(e) => {
                   handleCategory(e.target.innerHTML);
                 }}
@@ -98,7 +108,7 @@ function FeatureProducts() {
 
             <input
               type='search'
-              className='my-5 w-100 py-2 mx-auto form-control'
+              className='my-5 w-100 py-2 mx-auto form-control border-success shadow-4-soft'
               placeholder='Search...'
               onChange={(e) => {
                 setSearchData(e.currentTarget.value);
@@ -159,20 +169,19 @@ function FeatureProducts() {
                           >
                             add to cart
                           </button>
-                          <button
-                            className='btn'
-                            onClick={() => {
-                              addProductToWishlist(product.id);
-                            }}
-                          >
-                            {wishlist.some(
-                              (hearted) => hearted?.id === product.id
-                            ) ? (
-                              <i className='fa-solid fa-heart text-danger fs-2'></i>
-                            ) : (
-                              <i className='fa-solid fa-heart fs-2'></i>
-                            )}
-                          </button>
+                          {wishlist.some(
+                            (hearted) => hearted?.id === product.id
+                          ) ? (
+                            <i
+                              className='fa-solid fa-heart text-danger fs-2 border-0 cursor-pointer'
+                              onClick={() => addProductToWishlist(product.id)}
+                            ></i>
+                          ) : (
+                            <i
+                              className='fa-solid fa-heart fs-2 border-0 cursor-pointer'
+                              onClick={() => addProductToWishlist(product.id)}
+                            ></i>
+                          )}
                         </div>
                       </div>
                     </div>

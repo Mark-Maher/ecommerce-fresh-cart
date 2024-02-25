@@ -50,12 +50,20 @@ function ProductDetails() {
               <div className='col-md-4'>
                 <div className={`${styles.MainSlider}`}>
                   {" "}
-                  <Slider {...settings}>
-                    {isFetching && <Loader />}
-                    {data.data.data.images.map((image, index) => (
-                      <img src={image} alt='' className='w-100' key={index} />
-                    ))}
-                  </Slider>
+                  {data.data.data.images.length === 1 ? (
+                    <img
+                      src={data.data.data.images[0]}
+                      alt=''
+                      className='w-100'
+                    />
+                  ) : (
+                    <Slider {...settings}>
+                      {isFetching && <Loader />}
+                      {data.data.data.images.map((image, index) => (
+                        <img src={image} alt='' className='w-100' key={index} />
+                      ))}
+                    </Slider>
+                  )}
                 </div>
               </div>
               <div className='col-md-8'>
