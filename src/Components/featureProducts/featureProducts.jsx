@@ -60,13 +60,14 @@ function FeatureProducts() {
         {isLoading && <Loader />}
         {loading && <Loader />}
         {isError && <div className='alert alert-danger'>{error}</div>}
-        <Offerbanner />
+        {/* <Offerbanner /> */}
         <div className='container'>
           {" "}
           <ProductSale />
+          <TrendingProducts />
+          <BestSales />
         </div>
-        <TrendingProducts />
-        <BestSales />
+
         {data?.data.data && (
           <div className='container'>
             <h2 className='fs-1 fw-bold my-2 pb-3 subtitleName'>Products</h2>
