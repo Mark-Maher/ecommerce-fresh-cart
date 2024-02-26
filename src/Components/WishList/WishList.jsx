@@ -77,7 +77,7 @@ function WishList() {
           </Link>
         </div>
       ) : (
-        <div className='container my-5 bg-main-light p-3 rounded-3'>
+        <div className='container my-5 formDesign p-4 rounded-3 animate__animated animate__fadeInRightBig'>
           <h2 className='fs-1 fw-bold my-2 text-main pb-3'>My Wish List:</h2>
 
           {data?.data.map((item, index) => {

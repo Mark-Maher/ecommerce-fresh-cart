@@ -45,7 +45,7 @@ function MyOrders() {
           </Link>
         </div>
       ) : (
-        <div className='container my-5 bg-main-light p-5 rounded-3'>
+        <div className='container my-5 formDesign p-5 rounded-3 animate__animated animate__fadeInRightBig'>
           <h2 className='fs-1 fw-bold my-2 text-main pb-5 text-center'>
             My Orders
           </h2>

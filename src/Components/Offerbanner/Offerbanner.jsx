@@ -30,17 +30,17 @@ function Offerbanner() {
       {" "}
       <div className='offer'>
         <div className='container'>
-          <div className='row g-3'>
+          <div className='row g-3 '>
             {data?.slice(38, 40).map((product) => (
               <div
                 key={product.id}
                 // data-aos='zoom-in-down'
                 // data-aos-duration='1000'
-                className='col-md-6'
+                className='col-md-6 '
               >
                 <div className='item'>
                   <div className='row g-3'>
-                    <div className='col-6  '>
+                    <div className='col-6  animate__animated animate__fadeInLeftBig'>
                       <div className='text'>
                         <p>Upto 40% off </p>
                         <h3>
@@ -51,7 +51,7 @@ function Offerbanner() {
                         </Link>
                       </div>
                     </div>
-                    <div className='col-6  '>
+                    <div className='col-6  animate__animated animate__fadeInRightBig'>
                       <div className='image'>
                         <img
                           src={product.imageCover}

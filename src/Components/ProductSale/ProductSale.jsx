@@ -107,13 +107,13 @@ function ProductSale() {
                 </p>
               </div>
               <div className=' shadow d-flex justify-content-evenly flex-wrap '>
-                <div className='image mt-5   py-5'>
+                <div className='image mt-5 animate__animated animate__fadeInLeftBig  py-5'>
                   <img
                     src={require("../../Project Assests/images/1678304764905-cover.jpeg")}
                     alt='dell'
                   ></img>
                 </div>
-                <div className='info py-5'>
+                <div className='info py-5 animate__animated animate__fadeInRightBig'>
                   <div className='product-data '>
                     {data?.slice(34, 35).map((product) => (
                       <div key={product.id}>

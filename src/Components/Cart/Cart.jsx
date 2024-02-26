@@ -124,11 +124,11 @@ function Cart() {
           </div>
         </div>
       ) : (
-        <div className='container my-5 bg-main-light p-3 rounded-3'>
+        <div className='container my-5 formDesign p-4 rounded-3 animate__animated animate__fadeInRightBig'>
           <div className='d-flex justify-content-between align-items-center'>
             {" "}
             <div>
-              <h2 className='fs-1 fw-bold my-2 text-main pb-3'>Shop Cart:</h2>
+              <h2 className='fs-1 fw-bold my-2 text-main pb-3 '>Shop Cart:</h2>
               <p className='text-main fw-bold'>
                 Total Cart Price :{" "}
                 {data?.data.totalCartPrice ? data.data.totalCartPrice : 0}
