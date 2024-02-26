@@ -70,7 +70,9 @@ function FeatureProducts() {
 
         {data?.data.data && (
           <div className='container'>
-            <h2 className='fs-1 fw-bold my-2 pb-3 subtitleName'>Products</h2>
+            <h2 className='fs-1 fw-bold my-2 pb-3 subtitleName'>
+              Our Products
+            </h2>
             <div className='d-flex justify-content-evenly my-5'>
               {" "}
               <span
@@ -131,8 +133,8 @@ function FeatureProducts() {
                 })
                 .map((product) => {
                   return (
-                    <div className='col-md-3' key={product.id}>
-                      <div className='p-3  product'>
+                    <div className='col-md-3 ' key={product.id}>
+                      <div className='p-3  product '>
                         {" "}
                         <Link
                           to={`/product-details/${product.id}`}
@@ -142,7 +144,7 @@ function FeatureProducts() {
                           <img
                             src={product.imageCover}
                             alt={product.title}
-                            className='w-100'
+                            className='w-100 productimg'
                           />
                           <h3 className='h6 fw-bolder text-main my-2'>
                             {product.category.name}
@@ -150,7 +152,7 @@ function FeatureProducts() {
                           <h3 className='h6 fw-bolder  text-truncate my-2'>
                             {product.title}
                           </h3>
-                          <div className='d-flex justify-content-between my-2'>
+                          <div className='d-flex justify-content-between my-2 overflow-hidden'>
                             {" "}
                             <h4 className='h6'>{product.price} EGP</h4>
                             <h4 className='h6'>

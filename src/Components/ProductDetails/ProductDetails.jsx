@@ -3,13 +3,14 @@ import styles from "./ProductDetails.module.css";
 import {useQuery} from "react-query";
 import axios from "axios";
 import Loader from "../Loader/Loader";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Slider from "react-slick";
 import {cartContext} from "../../Context/CartContext";
 import {toast} from "react-toastify";
 function ProductDetails() {
   const {addToCart} = useContext(cartContext);
   const {productID} = useParams();
+  let navigate = useNavigate();
   console.log(productID);
   async function addProductToCart(Id) {
     let data = await addToCart(Id);
@@ -45,6 +46,14 @@ function ProductDetails() {
         {isLoading && <Loader />}
         <div className='container'>
           {isError && <div className='alert alert-danger'>{error.message}</div>}
+          <div className='text-end'>
+            <i
+              className='fa-solid fa-circle-xmark fs-2 cursor-pointer closebtn'
+              onClick={() => {
+                navigate("/products");
+              }}
+            ></i>
+          </div>
           {data?.data.data && (
             <div className='row align-items-center g-5'>
               <div className='col-md-4'>
@@ -85,7 +94,7 @@ function ProductDetails() {
                     </h4>
                   </div>
                   <button
-                    className='btn btn-success w-100 '
+                    className='btn addtocartbtn w-100 text-white'
                     onClick={() => {
                       addProductToCart(productID);
                     }}

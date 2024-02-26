@@ -1,1 +1,11 @@
-.Cart {}
+.Cart {
+}
+.emptyImage {
+  width: 65%;
+}
+@media only screen and (max-width: 600px) {
+  .emptyImage {
+    width: 100% !important;
+    margin-top: 60px;
+  }
+}

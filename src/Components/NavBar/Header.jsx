@@ -9,7 +9,7 @@ import {FaFacebook} from "react-icons/fa";
 import {FaInstagram} from "react-icons/fa6";
 import {FaLinkedin} from "react-icons/fa";
 import {FaGithub} from "react-icons/fa";
-
+import {FaArrowRightToBracket} from "react-icons/fa6";
 import {FaTwitter} from "react-icons/fa";
 
 import {Button, NavItem} from "react-bootstrap";
@@ -89,7 +89,7 @@ function NavBar() {
                 )}
               </Nav.Link>{" "}
               <Nav.Link as={NavLink} to={"cart"} className='position-relative '>
-                Cart <i className='fa-solid fa-cart-shopping fs-5'></i>{" "}
+                Cart <i className='fa-solid fa-cart-plus fs-5'></i>{" "}
                 {numOfCartItems ? (
                   <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>
                     {numOfCartItems}
@@ -151,7 +151,10 @@ function NavBar() {
                     </Link>
                   </li>
                 </ul>
-                <Nav.Link onClick={logOut}>Logout</Nav.Link>
+                <Nav.Link onClick={logOut}>
+                  Logout{" "}
+                  <i className='fa-solid fa-arrow-right-to-bracket fs-5'></i>
+                </Nav.Link>
               </>
             ) : (
               <>

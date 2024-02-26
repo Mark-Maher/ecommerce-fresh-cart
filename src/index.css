@@ -27,12 +27,19 @@ a:hover {
 .product {
   transition: all 2s, var(--main-color) 0.5s;
 }
+.shadow:hover img {
+  scale: 1.1;
+  transform: rotate(-10deg);
+}
 .product:hover {
   /* box-shadow: var(--shadow); */
   box-shadow: var(--shadow);
   border: solid 1px var(--main-color);
   border-radius: 10px;
   background-color: #fff;
+}
+.product:hover .productimg {
+  scale: 1.04;
 }
 .product .btnn {
   transition: transform 1s, opacity 1s;
@@ -399,6 +406,16 @@ body {
     padding: 0;
     max-width: 100% !important;
   }
+}
+.closebtn {
+  color: #3bb208;
+}
+.addtocartbtn {
+  background-color: #3bb208 !important;
+  color: #fff;
+}
+.addtocartbtn:hover {
+  background-color: var(--main-color) !important;
 }
 .subtitleName {
   color: #86e25d;
@@ -2472,10 +2489,17 @@ footer .copy-right span {
   #btnScroll {
     right: 0;
   }
+  .empty-image {
+    width: 100% !important;
+  }
 }
 
 /* ---------- Change Color Bar ---------- */
-
+.formDesign {
+  background-color: #ffffff;
+  box-shadow: var(--shadow);
+  border-radius: 20px;
+}
 /* background*container */
 ::-webkit-scrollbar-track {
   background-color: #eee;
@@ -2483,14 +2507,16 @@ footer .copy-right span {
 
 /* width container */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 15px;
 }
 
 /* width item */
 ::-webkit-scrollbar-thumb {
+  height: 15px;
+
   border-radius: 50px;
   background-color: #049704f7;
-  box-shadow: 0 0 20px 50px #049704f7;
+  box-shadow: 0 0 5px 5px #049704f7;
 }
 
 /* ==========  Setting Box ========== */

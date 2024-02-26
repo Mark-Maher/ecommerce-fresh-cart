@@ -103,18 +103,25 @@ function Cart() {
       {loading ? (
         <Loader />
       ) : data?.numOfCartItems === undefined ? (
-        <div className='text-center my-5 py-5'>
-          {" "}
-          <h2 className='text-center my-5 text-main py-4'>
-            There is not products in your cart , you can continue shopping from
-            .
-          </h2>
-          <Link
-            to={"/products"}
-            className='btn btn-success py-3 text-white fw-bolder'
-          >
-            Go to our products
-          </Link>
+        <div className='container text-center  '>
+          <img
+            src={require("../../Project Assests/images/preview.jpg")}
+            alt=''
+            className={` ${styles.emptyImage} `}
+          />{" "}
+          <div className=''>
+            {" "}
+            <h2 className='text-center  text-main py-1- '>
+              There is not products in your cart , you can continue shopping
+              from .
+            </h2>
+            <Link
+              to={"/products"}
+              className='btn btn-success py-3 my-4 text-white fw-bolder'
+            >
+              Go to our products
+            </Link>
+          </div>
         </div>
       ) : (
         <div className='container my-5 bg-main-light p-3 rounded-3'>

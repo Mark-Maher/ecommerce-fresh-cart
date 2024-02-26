@@ -108,7 +108,7 @@ function BestSales() {
 
                     <div className='trand-product-info'>
                       <div className='d-flex justify-content-between align-items-center'>
-                        <h3 className='h6 d-inline-block'>
+                        <h3 className='h6 d-inline-block text-main fw-bolder'>
                           {product.title.split(" ").slice(0, 2)}
                         </h3>
                         <i className='fa fa-star text-warning'>

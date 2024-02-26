@@ -76,47 +76,55 @@ function Login() {
       </Helmet>
       <div className={`${styles.loginFormWidth} `}>
         {errorMsg ? <div className='alert alert-danger'>{errorMsg}</div> : null}
-        <h2>Login Now</h2>
-        <form onSubmit={loginForm.handleSubmit}>
-          <div className='form-group mb-2'>
-            <label htmlFor='email' className='mb-2'>
-              Email :
-            </label>
-            <input
-              type='text'
-              className='form-control'
-              id='email'
-              name='email'
-              value={loginForm.values.email}
-              onChange={loginForm.handleChange}
-              onBlur={loginForm.handleBlur}
-            />
-            {loginForm.errors.email && loginForm.touched.email ? (
-              <div className='alert alert-danger'>{loginForm.errors.email}</div>
-            ) : null}
-          </div>
-          <div className='form-group mb-2'>
-            <label htmlFor='password' className='mb-2'>
-              Password :
-            </label>
-            <input
-              type='password'
-              className='form-control'
-              id='password'
-              name='password'
-              value={loginForm.values.password}
-              onChange={loginForm.handleChange}
-              onBlur={loginForm.handleBlur}
-            />{" "}
-            {loginForm.errors.password && loginForm.touched.password ? (
-              <div className='alert alert-danger'>
-                {loginForm.errors.password}
-              </div>
-            ) : null}
+
+        <form onSubmit={loginForm.handleSubmit} className='formDesign p-5'>
+          <h2 className='animate__animated animate__fadeInRight text-main mb-3 '>
+            Login Now
+          </h2>
+          <div className='animate__animated animate__zoomInDown'>
+            {" "}
+            <div className='form-group mb-2'>
+              <label htmlFor='email' className='mb-2 fw-bold'>
+                Email :
+              </label>
+              <input
+                type='text'
+                className='form-control '
+                id='email'
+                name='email'
+                value={loginForm.values.email}
+                onChange={loginForm.handleChange}
+                onBlur={loginForm.handleBlur}
+              />
+              {loginForm.errors.email && loginForm.touched.email ? (
+                <div className='alert alert-danger'>
+                  {loginForm.errors.email}
+                </div>
+              ) : null}
+            </div>
+            <div className='form-group mb-2'>
+              <label htmlFor='password' className='mb-2 fw-bold'>
+                Password :
+              </label>
+              <input
+                type='password'
+                className='form-control '
+                id='password'
+                name='password'
+                value={loginForm.values.password}
+                onChange={loginForm.handleChange}
+                onBlur={loginForm.handleBlur}
+              />{" "}
+              {loginForm.errors.password && loginForm.touched.password ? (
+                <div className='alert alert-danger'>
+                  {loginForm.errors.password}
+                </div>
+              ) : null}
+            </div>
           </div>
 
           <button
-            className='btn bg-main d-block me-auto mt-4 text-white'
+            className='btn bg-main d-block me-auto mt-4 text-white animate__animated animate__fadeInLeft'
             type='submit'
             disabled={!(loginForm.isValid && loginForm.dirty)}
           >
@@ -133,7 +141,7 @@ function Login() {
               "Login"
             )}
           </button>
-          <p className='mt-3'>
+          <p className='mt-3 animate__animated animate__fadeInRight'>
             <Link
               className='text-start my-3 cursor-pointer pass text-decoration-none text-dark '
               to={"/forgetpassword"}
@@ -141,7 +149,7 @@ function Login() {
               Forget Your Password ?
             </Link>
           </p>
-          <p className='text-start my-3'>
+          <p className='text-start my-3 animate__animated animate__fadeInRight'>
             Don't have an account?{" "}
             <Link to={"/register"} className='text-main fw-bold'>
               Register Now

@@ -59,9 +59,13 @@ function WishList() {
       {loading ? (
         <Loader />
       ) : data?.data.length === 0 ? (
-        <div className='text-center my-5 py-5'>
-          {" "}
-          <h2 className='text-center my-5 text-main py-4'>
+        <div className='text-center my-4 py-4'>
+          <img
+            src={require("../../Project Assests/images/download.jpg")}
+            alt=''
+            className={`${styles.wishempty}`}
+          />{" "}
+          <h2 className='text-center my-3 text-main py-3'>
             There is not products in your wish list , you can continue shopping
             from .
           </h2>
