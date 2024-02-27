@@ -98,7 +98,7 @@ function Login() {
                 placeholder='Email...'
               />
               {loginForm.errors.email && loginForm.touched.email ? (
-                <div className='alert alert-danger'>
+                <div className='alert alert-danger mt-1 rounded-8 fw-bold'>
                   {loginForm.errors.email}
                 </div>
               ) : null}
@@ -115,7 +115,7 @@ function Login() {
                 placeholder='Password...'
               />{" "}
               {loginForm.errors.password && loginForm.touched.password ? (
-                <div className='alert alert-danger'>
+                <div className='alert alert-danger mt-1 rounded-8 fw-bold'>
                   {loginForm.errors.password}
                 </div>
               ) : null}
