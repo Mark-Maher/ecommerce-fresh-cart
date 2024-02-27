@@ -30,7 +30,7 @@ function Register() {
       // alert("Success!");
       let timerInterval;
       Swal.fire({
-        title: "Register Is Complete",
+        title: "Register Is Complete successfully",
         html: "You Will Navigate To Login Page in <b></b> milliseconds.",
         timer: 800,
         timerProgressBar: true,
