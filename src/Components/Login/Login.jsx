@@ -31,22 +31,22 @@ function Login() {
       localStorage.setItem("user", data.token);
       setToken(data.token);
       let timerInterval;
-      // Swal.fire({
-      //   title: "Login Complete",
-      //   html: "You Will Navigate To Home Page in <b></b> milliseconds.",
-      //   timer: 800,
-      //   timerProgressBar: true,
-      //   didOpen: () => {
-      //     Swal.showLoading();
-      //     const timer = Swal.getPopup().querySelector("b");
-      //     timerInterval = setInterval(() => {
-      //       timer.textContent = `${Swal.getTimerLeft()}`;
-      //     }, 100);
-      //   },
-      //   willClose: () => {
-      //     clearInterval(timerInterval);
-      //   },
-      // });
+      Swal.fire({
+        title: "Login Complete",
+        html: "You Will Navigate To Home Page in <b></b> milliseconds.",
+        timer: 800,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const timer = Swal.getPopup().querySelector("b");
+          timerInterval = setInterval(() => {
+            timer.textContent = `${Swal.getTimerLeft()}`;
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      });
       navigate("/home");
     }
   }
