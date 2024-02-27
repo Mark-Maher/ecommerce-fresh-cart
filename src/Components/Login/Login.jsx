@@ -86,18 +86,16 @@ function Login() {
           </h2>
           <div className='animate__animated animate__zoomInDown'>
             {" "}
-            <div className='form-group mb-2'>
-              <label htmlFor='email' className='mb-2 fw-bold'>
-                Email :
-              </label>
+            <div className='form-group mb-3'>
               <input
                 type='text'
-                className='form-control '
+                className=' _input_xebgj_29'
                 id='email'
                 name='email'
                 value={loginForm.values.email}
                 onChange={loginForm.handleChange}
                 onBlur={loginForm.handleBlur}
+                placeholder='Email...'
               />
               {loginForm.errors.email && loginForm.touched.email ? (
                 <div className='alert alert-danger'>
@@ -106,17 +104,15 @@ function Login() {
               ) : null}
             </div>
             <div className='form-group mb-2'>
-              <label htmlFor='password' className='mb-2 fw-bold'>
-                Password :
-              </label>
               <input
                 type='password'
-                className='form-control '
+                className='_input_xebgj_29 '
                 id='password'
                 name='password'
                 value={loginForm.values.password}
                 onChange={loginForm.handleChange}
                 onBlur={loginForm.handleBlur}
+                placeholder='Password...'
               />{" "}
               {loginForm.errors.password && loginForm.touched.password ? (
                 <div className='alert alert-danger'>

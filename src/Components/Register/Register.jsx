@@ -101,7 +101,7 @@ function Register() {
           <h2 className='text-main mb-3 animate__animated animate__fadeInLeft'>
             Register Now
           </h2>
-          <div className='animate__animated animate__zoomInDown overflow-hidden '>
+          <div className='animate__animated animate__zoomInDown overflow-hidden p-3'>
             {" "}
             <div className='form-group mb-2'>
               <label htmlFor='fullName' className='mb-2 fw-bold'>
@@ -109,7 +109,7 @@ function Register() {
               </label>
               <input
                 type='text'
-                className='form-control'
+                className=' _input_xebgj_29'
                 id='fullName'
                 name='name'
                 value={registerForm.values.name}
@@ -128,7 +128,7 @@ function Register() {
               </label>
               <input
                 type='text'
-                className='form-control'
+                className='_input_xebgj_29'
                 id='email'
                 name='email'
                 value={registerForm.values.email}
@@ -147,7 +147,7 @@ function Register() {
               </label>
               <input
                 type='password'
-                className='form-control'
+                className='_input_xebgj_29'
                 id='password'
                 name='password'
                 value={registerForm.values.password}
@@ -166,7 +166,7 @@ function Register() {
               </label>
               <input
                 type='password'
-                className='form-control'
+                className='_input_xebgj_29'
                 id='rePassword'
                 name='rePassword'
                 value={registerForm.values.rePassword}
@@ -186,7 +186,7 @@ function Register() {
               </label>
               <input
                 type='tel'
-                className='form-control'
+                className='_input_xebgj_29'
                 id='phone'
                 name='phone'
                 value={registerForm.values.phone}
