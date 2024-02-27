@@ -27,7 +27,7 @@ function Categories() {
           <h2 className='fs-1 fw-bold my-5 text-main pb-3 animate__animated animate__fadeInLeftBig'>
             Categories{" "}
           </h2>
-          <div className='row g-4 gx-5 animate__animated animate__fadeInRightBig'>
+          <div className='row g-4 gx-4 animate__animated animate__fadeInRightBig'>
             {data?.data.data.map((item, id) => {
               return (
                 <div className='col-md-4 ng-star-inserted px-3' key={id}>
@@ -49,17 +49,6 @@ function Categories() {
           </div>
         </div>
       )}
-      <div className='container py-5 px-2'>
-        <h2>Categories</h2>
-        <div className='row'>
-          {data?.data.data.map((item, id) => {
-            <div className='col-md-4' key={id}>
-              <img src={item.image} alt='' className='w-100' />
-              <h3>{item.name}</h3>
-            </div>;
-          })}
-        </div>
-      </div>
     </>
   );
 }

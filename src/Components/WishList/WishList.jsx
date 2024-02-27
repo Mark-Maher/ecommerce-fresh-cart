@@ -44,6 +44,7 @@ function WishList() {
         toast.error("Product deleted successfully", {theme: "colored"});
         setData(data);
       }
+
       getWishListDetails();
       return response.data;
     } catch (error) {
@@ -53,6 +54,7 @@ function WishList() {
   }
   useEffect(() => {
     getWishListDetails();
+    // deleteItem();
   }, []);
   return (
     <>

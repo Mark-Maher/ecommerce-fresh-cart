@@ -13,6 +13,8 @@ import {toast} from "react-toastify";
 function BestSales() {
   let [loading, setLoading] = useState(false);
   let [heartColor, setHeartColor] = useState(false);
+  let [displaybtn, setDisplayBtn] = useState(false);
+
   const {addToCart, addToWishlist, wishlist, getToWishlist} =
     useContext(cartContext);
   // async function addProductToWishlist(Id) {
@@ -29,11 +31,14 @@ function BestSales() {
   //   }
   // }
   async function addProductToCart(Id) {
+    setDisplayBtn(true);
     let data = await addToCart(Id);
     if (data.status === "success") {
       toast.success(data.message, {theme: "colored"});
+      setDisplayBtn(false);
     } else {
       toast.error("failed to add product", {theme: "colored"});
+      setDisplayBtn(false);
     }
   }
   async function addProductToWishlist(Id) {
@@ -68,10 +73,14 @@ function BestSales() {
       console.log(error);
     }
   }
-  let {data, isLoading} = useQuery("trandingProducts", getTrandingProducts);
+  let {data, isLoading, isFetching} = useQuery(
+    "trandingProducts",
+    getTrandingProducts
+  );
+  console.log(isFetching);
   return (
     <>
-      {" "}
+      {loading && <Loader />}{" "}
       <div className='Ttanding-products my-4'>
         <div className='container'>
           <div className='row gy-3 '>
@@ -82,19 +91,13 @@ function BestSales() {
               </span>
               {/* <span> (highest rate)</span> */}
             </h2>
-            {isLoading ? <Loader /> : ""}
+            {isLoading && <Loader />}
             {data
               ?.filter((product, index) => product.ratingsAverage >= 4.8)
               .slice(3)
               .reverse()
               .map((product, index) => (
-                <div
-                  key={product.id}
-                  // data-aos={index % 2 === 0 ? "fade-up" : "fade-down"}
-                  // data-aos-duration='1000'
-                  // data-aos-delay={`${index * 100}`}
-                  className='col-md-6 col-lg-3'
-                >
+                <div key={product.id} className='col-md-6 col-lg-3'>
                   <div className='trand-item '>
                     <div className='trand-img  overflow-hidden  text-center  '>
                       <Link to={`/product-details/${product.id}`}>
@@ -105,7 +108,6 @@ function BestSales() {
                         />
                       </Link>
                     </div>
-
                     <div className='trand-product-info'>
                       <div className='d-flex justify-content-between align-items-center'>
                         <h3 className='h6 d-inline-block text-main fw-bolder'>
@@ -115,6 +117,7 @@ function BestSales() {
                           {" "}
                           <span> {product.ratingsAverage}</span>
                         </i>
+
                         {wishlist.some(
                           (hearted) => hearted?.id === product.id
                         ) ? (
@@ -134,10 +137,16 @@ function BestSales() {
 
                       <div className='trand-product-price'>
                         <p>EGY {product.price}</p>
-                        <i
-                          onClick={() => addProductToCart(product.id)}
-                          className='fa-solid fa-cart-arrow-down fa-flip-horizontal'
-                        ></i>
+                        <button
+                          className='border-0 bg-white'
+                          disabled={displaybtn ? true : false}
+                        >
+                          {" "}
+                          <i
+                            onClick={() => addProductToCart(product.id)}
+                            className='fa-solid fa-cart-arrow-down fa-flip-horizontal'
+                          ></i>
+                        </button>
                       </div>
                     </div>
                   </div>

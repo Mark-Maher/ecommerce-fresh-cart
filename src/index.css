@@ -42,7 +42,7 @@ a:hover {
   scale: 1.04;
 }
 .product .btnn {
-  transition: transform 1s, opacity 1s;
+  transition: transform 0.8s, opacity 1s;
   transform: translateY(100%);
   opacity: 0;
 }
