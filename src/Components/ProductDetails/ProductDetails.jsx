@@ -46,7 +46,7 @@ function ProductDetails() {
         {isLoading && <Loader />}
         <div className='container'>
           {isError && <div className='alert alert-danger'>{error.message}</div>}
-          <div className='text-end'>
+          <div className='text-end mb-1'>
             <i
               className='fa-solid fa-circle-xmark fs-2 cursor-pointer closebtn'
               onClick={() => {
