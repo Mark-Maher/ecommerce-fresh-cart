@@ -32,7 +32,7 @@ function Login() {
       setToken(data.token);
       let timerInterval;
       Swal.fire({
-        title: "Register Is Complete",
+        title: "Login Complete",
         html: "You Will Navigate To Home Page in <b></b> milliseconds.",
         timer: 800,
         timerProgressBar: true,
