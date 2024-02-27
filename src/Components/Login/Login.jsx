@@ -55,7 +55,10 @@ function Login() {
       .email("email is not valid")
       .required("email is required"),
     password: Yup.string()
-      .matches(/^[A-Z][a-z0-9]{3,8}$/, "invalid Password")
+      .matches(
+        /^[A-Z][a-z0-9]{3,8}$/,
+        "invalid Password (should have a minimum length of 3 characters include one uppercase letter and numbers)"
+      )
       .required("password is required"),
   });
   const loginForm = useFormik({
