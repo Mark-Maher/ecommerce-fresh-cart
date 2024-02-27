@@ -419,9 +419,14 @@ body {
 }
 .subtitleName {
   color: #86e25d;
+  transition: all 0.5s;
+}
+.titleName {
+  color: #86e25d;
 }
 .subtitleName:hover {
   color: #3bb208;
+  transform: scale(1.08);
 }
 .main-info {
   z-index: 1;

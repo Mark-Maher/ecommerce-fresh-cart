@@ -75,9 +75,7 @@ function FeatureProducts() {
         ) : (
           data?.data.data && (
             <div className='container'>
-              <h2 className='fs-1 fw-bold my-2 pb-3 subtitleName'>
-                Our Products
-              </h2>
+              <h2 className='fs-1 fw-bold my-2 pb-3 titleName'>Our Products</h2>
               <div className='d-flex justify-content-evenly my-5'>
                 {" "}
                 <span
@@ -116,13 +114,13 @@ function FeatureProducts() {
 
               <input
                 type='search'
-                className='my-5 w-100 py-2 mx-auto form-control border-success shadow-4-soft'
+                className='my-5 w-100 py-2 mx-auto form-control border-success shadow-4-soft bg-body-secondary fw-bold'
                 placeholder='Search...'
                 onChange={(e) => {
                   setSearchData(e.currentTarget.value);
                 }}
               />
-              <div className='row'>
+              <div className='row gx-4'>
                 {data?.data.data
                   .filter((product) => {
                     return searchData.toLowerCase() === ""
