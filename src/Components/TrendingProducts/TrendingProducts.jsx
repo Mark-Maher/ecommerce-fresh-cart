@@ -13,6 +13,8 @@ import {toast} from "react-toastify";
 function TrendingProducts() {
   let [loading, setLoading] = useState(false);
   let [heartColor, setHeartColor] = useState(false);
+  let [displaybtn, setDisplayBtn] = useState(false);
+
   const {addToCart, addToWishlist, wishlist, getToWishlist} =
     useContext(cartContext);
   // async function addProductToWishlist(Id) {
@@ -29,11 +31,14 @@ function TrendingProducts() {
   //   }
   // }
   async function addProductToCart(Id) {
+    setDisplayBtn(true);
     let data = await addToCart(Id);
     if (data.status === "success") {
       toast.success(data.message, {theme: "colored"});
+      setDisplayBtn(false);
     } else {
       toast.error("failed to add product", {theme: "colored"});
+      setDisplayBtn(false);
     }
   }
   async function addProductToWishlist(Id) {
@@ -130,10 +135,15 @@ function TrendingProducts() {
 
                     <div className='trand-product-price'>
                       <p>EGY {product.price}</p>
-                      <i
-                        onClick={() => addProductToCart(product.id)}
-                        className='fa-solid fa-cart-arrow-down fa-flip-horizontal'
-                      ></i>
+                      <button
+                        className='border-0 bg-white'
+                        disabled={displaybtn ? true : false}
+                      >
+                        <i
+                          onClick={() => addProductToCart(product.id)}
+                          className='fa-solid fa-cart-arrow-down fa-flip-horizontal'
+                        ></i>
+                      </button>
                     </div>
                   </div>
                 </div>

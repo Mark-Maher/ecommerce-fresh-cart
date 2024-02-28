@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import styles from "./ProductDetails.module.css";
 import {useQuery} from "react-query";
 import axios from "axios";
@@ -7,19 +7,29 @@ import {useNavigate, useParams} from "react-router-dom";
 import Slider from "react-slick";
 import {cartContext} from "../../Context/CartContext";
 import {toast} from "react-toastify";
+import {Spinner} from "react-bootstrap";
 function ProductDetails() {
+  let [displaybtn, setDisplayBtn] = useState(false);
+  const [loading, setloading] = useState(false);
+
   const {addToCart} = useContext(cartContext);
   const {productID} = useParams();
   let navigate = useNavigate();
   console.log(productID);
   async function addProductToCart(Id) {
+    setloading(true);
+    setDisplayBtn(true);
     let data = await addToCart(Id);
     console.log("data", data);
 
     if (data.status === "success") {
       toast.success(data.message, {theme: "colored"});
+      setDisplayBtn(false);
+      setloading(false);
     } else {
       toast.error("failed to add product", {theme: "colored"});
+      setDisplayBtn(false);
+      setloading(false);
     }
   }
 
@@ -95,11 +105,23 @@ function ProductDetails() {
                   </div>
                   <button
                     className='btn addtocartbtn w-100 text-white'
+                    disabled={displaybtn ? true : false}
                     onClick={() => {
                       addProductToCart(productID);
                     }}
                   >
-                    add to cart
+                    {loading ? (
+                      <Spinner
+                        animation='border'
+                        role='status'
+                        size='sm'
+                        className='me-1'
+                      >
+                        <span className='visually-hidden '>Loading...</span>
+                      </Spinner>
+                    ) : (
+                      " add to cart"
+                    )}
                   </button>
                 </div>
               </div>
