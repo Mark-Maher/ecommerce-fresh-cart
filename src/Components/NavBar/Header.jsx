@@ -142,10 +142,24 @@ function NavBar() {
                 {" "}
                 <ul className='list-unstyled d-flex mb-0 align-items-center ms-2'>
                   <li className='mx-2'>
-                    <FaLinkedin />
+                    <Link
+                      to={"https://www.linkedin.com/in/mark-maher-9781ab246/"}
+                      target='_blank'
+                      className='text-dark'
+                    >
+                      {" "}
+                      <FaLinkedin />
+                    </Link>
                   </li>{" "}
                   <li className='mx-2'>
-                    <FaGithub />
+                    <Link
+                      to={"https://github.com/Mark-Maher"}
+                      target='_blank'
+                      className='text-dark'
+                    >
+                      {" "}
+                      <FaGithub />
+                    </Link>
                   </li>
                 </ul>
                 <Nav.Link as={NavLink} to={"login"}>
