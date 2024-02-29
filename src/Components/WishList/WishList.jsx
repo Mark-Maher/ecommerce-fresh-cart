@@ -79,49 +79,52 @@ function WishList() {
           </Link>
         </div>
       ) : (
-        <div className='container my-5 formDesign p-4 rounded-3 animate__animated animate__fadeInRightBig'>
-          <h2 className='fs-1 fw-bold my-2 text-main pb-3'>My Wish List:</h2>
+        <div className='container'>
+          {" "}
+          <div className='container my-5 formDesign p-4 rounded-3 animate__animated animate__fadeInRightBig'>
+            <h2 className='fs-1 fw-bold my-2 text-main pb-3'>My Wish List:</h2>
 
-          {data?.data.map((item, index) => {
-            return (
-              <div
-                className='row py-4 g-4 border-bottom align-items-center'
-                key={index}
-              >
-                <div className='col-md-2'>
-                  <img src={item.imageCover} className='w-100' alt='' />
-                </div>
-                <div className='col-md-10 d-flex  justify-content-between'>
-                  {" "}
-                  <div>
-                    <p className='my-2'>{item.title}</p>
-                    <p className='text-main fw-bolder my-2'>
-                      Price : {item.price} EGP
-                    </p>
-                    <div className='d-flex  w-100 my-2'>
-                      {" "}
-                      <button
-                        className='btn btn-danger'
-                        onClick={() => {
-                          deleteItem(item.id);
-                        }}
-                      >
-                        Remove <i className='fa-solid fa-trash ms-2'></i>
-                      </button>
-                      <button
-                        className='btn btnn bg-main text-white font-sm ms-3'
-                        onClick={() => {
-                          addProductToCart(item.id);
-                        }}
-                      >
-                        add to cart
-                      </button>
+            {data?.data.map((item, index) => {
+              return (
+                <div
+                  className='row py-4 g-4 border-bottom align-items-center'
+                  key={index}
+                >
+                  <div className='col-md-2'>
+                    <img src={item.imageCover} className='w-100' alt='' />
+                  </div>
+                  <div className='col-md-10 d-flex  justify-content-between'>
+                    {" "}
+                    <div>
+                      <p className='my-2'>{item.title}</p>
+                      <p className='text-main fw-bolder my-2'>
+                        Price : {item.price} EGP
+                      </p>
+                      <div className='d-flex  w-100 my-2'>
+                        {" "}
+                        <button
+                          className='btn btn-danger'
+                          onClick={() => {
+                            deleteItem(item.id);
+                          }}
+                        >
+                          Remove <i className='fa-solid fa-trash ms-2'></i>
+                        </button>
+                        <button
+                          className='btn btnn bg-main text-white font-sm ms-3'
+                          onClick={() => {
+                            addProductToCart(item.id);
+                          }}
+                        >
+                          add to cart
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       )}
     </>
