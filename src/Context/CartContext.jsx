@@ -8,7 +8,8 @@ export let cartContext = createContext();
 export default function CartContextProvider({children}) {
   const [numOfCartItems, setNumOfCartItems] = useState(null);
   const [numOfWishList, setNumOfWishList] = useState(null);
-
+  // const [Email, setEmail] = useState(null);
+  // const [Password, setPassword] = useState(null);
   const [wishlist, setWishList] = useState([]);
 
   const {token} = useContext(TokenContext);
@@ -144,6 +145,10 @@ export default function CartContextProvider({children}) {
         wishlist,
         setNumOfWishList,
         numOfWishList,
+        // setEmail,
+        // Email,
+        // setPassword,
+        // Password,
       }}
     >
       {children}

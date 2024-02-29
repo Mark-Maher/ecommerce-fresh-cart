@@ -108,7 +108,7 @@ function NavBar() {
               <>
                 {" "}
                 <ul className='list-unstyled d-flex mb-0 align-items-center ms-2'>
-                  <li className='mx-2'>
+                  {/* <li className='mx-2'>
                     {" "}
                     <Link
                       to='https://www.facebook.com/mark.maher.102'
@@ -130,7 +130,7 @@ function NavBar() {
                       {" "}
                       <FaInstagram />
                     </Link>
-                  </li>
+                  </li> */}
                   <li className='mx-2'>
                     <Link
                       to={"https://www.linkedin.com/in/mark-maher-9781ab246/"}
@@ -152,6 +152,9 @@ function NavBar() {
                     </Link>
                   </li>
                 </ul>
+                <Nav.Link as={NavLink} to={"profile"}>
+                  Profile <i className='fa-solid fa-user fs-5 ms-2'></i>
+                </Nav.Link>{" "}
                 <Nav.Link onClick={logOut}>
                   Logout{" "}
                   <i className='fa-solid fa-arrow-right-to-bracket fs-5'></i>

@@ -1,0 +1,10 @@
+.ProfileDetails {
+}
+@media only screen and (max-width: 600px) {
+  .userinfo {
+    flex-direction: column;
+  }
+  .userinfo i {
+    margin-bottom: 30px;
+  }
+}

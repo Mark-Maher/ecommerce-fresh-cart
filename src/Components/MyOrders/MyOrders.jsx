@@ -16,6 +16,7 @@ function MyOrders() {
     let {data} = await axios.get(
       `https://ecommerce.routemisr.com/api/v1/orders/user/${id}`
     );
+    console.log(data);
     console.log(data.length);
     setOrederData(data);
 

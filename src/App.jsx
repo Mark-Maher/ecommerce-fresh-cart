@@ -25,6 +25,9 @@ import WishList from "./Components/WishList/WishList";
 import ForgetPassword from "./Components/ForgetPassword/ForgetPassword";
 import VerfiyForgetPassword from "./Components/VerfiyForgetPassword/VerfiyForgetPassword";
 import ResetForgetPassword from "./Components/ResetForgetPassword/ResetForgetPassword";
+import ProfileDetails from "./Components/ProfileDetails/ProfileDetails";
+import UpdateData from "./Components/UpdateData/UpdateData";
+import UpdatePassword from "./Components/UpdatePassword/UpdatePassword";
 
 function App() {
   const {setToken, TokenContextProvider} = useContext(TokenContext);
@@ -127,6 +130,30 @@ function App() {
           ),
         },
         {
+          path: "updateData",
+          element: (
+            <ProtectRoutes>
+              <UpdateData />
+            </ProtectRoutes>
+          ),
+        },
+        {
+          path: "updatePassword",
+          element: (
+            <ProtectRoutes>
+              <UpdatePassword />
+            </ProtectRoutes>
+          ),
+        },
+        {
+          path: "profile",
+          element: (
+            <ProtectRoutes>
+              <ProfileDetails />
+            </ProtectRoutes>
+          ),
+        },
+        {
           path: "forgetpassword",
           element: <ForgetPassword />,
         },
@@ -155,6 +182,7 @@ function App() {
             </LoginProtectRoutes>
           ),
         },
+
         {path: "*", element: <NotFound />},
       ],
     },

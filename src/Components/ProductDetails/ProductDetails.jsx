@@ -11,7 +11,6 @@ import {Spinner} from "react-bootstrap";
 function ProductDetails() {
   let [displaybtn, setDisplayBtn] = useState(false);
   const [loading, setloading] = useState(false);
-
   const {addToCart} = useContext(cartContext);
   const {productID} = useParams();
   let navigate = useNavigate();

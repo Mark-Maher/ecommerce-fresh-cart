@@ -8,6 +8,7 @@ import {Link, useNavigate} from "react-router-dom";
 import Swal from "sweetalert2";
 import {TokenContext} from "../../Context/Token";
 import {Helmet} from "react-helmet";
+import {cartContext} from "../../Context/CartContext";
 function Login() {
   const [errorMsg, setErrorMsg] = useState("");
   const [loading, setloading] = useState(false);
@@ -15,7 +16,14 @@ function Login() {
 
   const {setToken} = useContext(TokenContext);
   const navigate = useNavigate();
+  // console.log(Email, Password);
   async function callLogin(reqBody) {
+    localStorage.setItem("userEmail", JSON.stringify(reqBody.email));
+    localStorage.setItem("userPassword", JSON.stringify(reqBody.password));
+
+    // setEmail(reqBody?.email);
+    // setPassword(reqBody?.password);
+    console.log(reqBody);
     setErrorMsg("");
     setloading(true);
     setbtnDisabled(true);
