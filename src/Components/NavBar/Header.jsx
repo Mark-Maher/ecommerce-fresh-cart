@@ -166,7 +166,7 @@ function NavBar() {
                   Login
                 </Nav.Link>{" "}
                 <Nav.Link as={NavLink} to={"register"}>
-                  Register
+                  Register <i className='fa-solid fa-user-plus'></i>
                 </Nav.Link>{" "}
               </>
             )}
