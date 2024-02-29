@@ -61,10 +61,10 @@ function App() {
           ),
         },
         // {index: true, element: <Home />},
-        {
-          path: "ecommerce_freshcart/",
-          element: <Login />,
-        },
+        // {
+        //   path: "ecommerce_freshcart/",
+        //   element: <Login />,
+        // },
         {
           path: "/product-details/:productID",
           element: (

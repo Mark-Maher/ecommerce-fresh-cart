@@ -2589,3 +2589,7 @@ footer .copy-right span {
   outline: none;
   border-inline: 2px solid #0aad0a;
 }
+.existingEmail {
+  transition: all 2s;
+  color: #3bb208;
+}

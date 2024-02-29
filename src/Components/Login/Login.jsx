@@ -16,6 +16,10 @@ function Login() {
 
   const {setToken} = useContext(TokenContext);
   const navigate = useNavigate();
+  function freeEmail() {
+    loginForm.values.email = "markmaher838@gmail.com";
+    loginForm.values.password = "Mark123";
+  }
   // console.log(Email, Password);
   async function callLogin(reqBody) {
     localStorage.setItem("userEmail", reqBody.email);
@@ -86,12 +90,13 @@ function Login() {
         <title>Login Page</title>
       </Helmet>
       <div className={`${styles.loginFormWidth} `}>
-        {errorMsg ? <div className='alert alert-danger'>{errorMsg}</div> : null}
-
         <form onSubmit={loginForm.handleSubmit} className='formDesign p-5'>
           <h2 className='animate__animated animate__fadeInRight text-main mb-3 '>
             Login Now
           </h2>
+          {errorMsg ? (
+            <div className='alert alert-danger'>{errorMsg}</div>
+          ) : null}
           <div className='animate__animated animate__zoomInDown'>
             {" "}
             <div className='form-group mb-3'>
@@ -128,6 +133,14 @@ function Login() {
                 </div>
               ) : null}
             </div>
+            <button
+              className='bg-white border-0 mt-3 fw-semibold  existingEmail'
+              onClick={() => {
+                freeEmail();
+              }}
+            >
+              Try with an existing email{" "}
+            </button>
           </div>
 
           <button

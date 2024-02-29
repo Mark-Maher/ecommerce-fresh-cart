@@ -52,40 +52,69 @@ function MyOrders() {
           </h2>
           {orderData?.map((order, index) => (
             <div key={index}>
-              <div className='row align-items-start border-bottom g-2'>
-                <h3 className='fw-bold mt-3'>
+              <div className='row align-items-start border-bottom  gy-2'>
+                <h3 className='fw-bold mt-5'>
                   Order Number : <span className='text-main'>{index + 1}</span>
                 </h3>
-                <div className='col-md-8'>
-                  {order.cartItems.map((item, index) => {
-                    return (
-                      <div className='d-flex align-items-center ' key={index}>
-                        <img
-                          src={item.product.imageCover}
-                          alt=''
-                          className='w-25 me-3 my-3 rounded'
-                        />
-                        <div className='fw-bold'>
-                          {" "}
-                          <p className='text-main fw-bold'>
-                            {item.product.category.name}
-                          </p>{" "}
-                          <p>{item.product.title}</p>
-                          <p> Count : {item.count}</p>
-                          <p> Price : {item.price}</p>{" "}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className='col-md-4 border-black mt-5 fw-bold border border-success p-2 rounded'>
-                  <p className=''>
-                    Order <span className='text-main fs-5'>{index + 1}</span>{" "}
+                {/* <div className='col-md-3'> */}
+                <div className='mt-5 fw-bold border  p-3 rounded-9 _input_xebgj_29  mb-4'>
+                  <p className='text-start fw-bold fs-4'>
+                    Order <span className='text-main fs-4'>{index + 1}</span>{" "}
                     Details{" "}
                   </p>
-                  <p>Payment Method : {order.paymentMethodType} </p>
-                  <p>Total Order Price : {order.totalOrderPrice}</p>
+                  <div
+                    className={`d-flex justify-content-start w-100 ${styles.flexColum}`}
+                  >
+                    {" "}
+                    <div className='me-5'>
+                      {" "}
+                      <p>Payment Method : {order.paymentMethodType} </p>
+                      <p>Payment Method : {order.user.email} </p>
+                      <p>Total Order Price : {order.totalOrderPrice}</p>
+                    </div>
+                    <div className=''>
+                      <p>Name :{order.user.name} </p>
+                      <p>City :{order.shippingAddress.details} </p>
+                      <p>Phone :{order.shippingAddress.phone} </p>
+                    </div>
+                  </div>
                 </div>
+                {order.cartItems.map((item, index) => {
+                  return (
+                    <>
+                      {" "}
+                      <div className='col-md-3  mb-3 _input_xebgj_29 '>
+                        {" "}
+                        <div
+                          className={`d-flex align-items-center ${styles.flexColum}`}
+                          key={index}
+                        >
+                          <img
+                            src={item.product.imageCover}
+                            alt=''
+                            className='w-25 me-3 my-3 rounded'
+                          />
+                          <div className='fw-bold'>
+                            {" "}
+                            <p className='text-main fw-bold text-truncate'>
+                              {item.product.category.name}
+                            </p>{" "}
+                            <p
+                              className='my-1 text-truncate'
+                              style={{maxWidth: "140px"}}
+                            >
+                              {item.product.title}
+                            </p>
+                            <p className='my-1'> Count : {item.count}</p>
+                            <p className='my-1'> Price : {item.price}</p>{" "}
+                          </div>
+                        </div>
+                      </div>{" "}
+                    </>
+                  );
+                })}
+
+                {/* </div> */}
               </div>
             </div> // Added key prop for each order
           ))}

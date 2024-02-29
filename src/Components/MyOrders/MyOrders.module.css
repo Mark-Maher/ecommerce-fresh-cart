@@ -1,1 +1,17 @@
-.MyOrders {}
+.MyOrders {
+}
+.orderDetails {
+}
+@media only screen and (max-width: 600px) {
+  .flexColum {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .flexColum {
+    flex-direction: column;
+  }
+  .flexColum img {
+    width: 50% !important;
+  }
+}
