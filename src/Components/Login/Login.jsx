@@ -140,6 +140,7 @@ function Login() {
               }}
             >
               Try with an existing email{" "}
+              <i className='fa-solid fa-envelope-circle-check'></i>
             </button>
           </div>
 
