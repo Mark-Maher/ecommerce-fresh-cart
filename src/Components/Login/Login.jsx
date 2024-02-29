@@ -134,12 +134,12 @@ function Login() {
               ) : null}
             </div>
             <button
-              className='bg-white border-0 mt-3 fw-semibold  existingEmail'
+              className='bg-white border-0 mt-3 fw-semibold   existingEmail'
               onClick={() => {
                 freeEmail();
               }}
             >
-              Try with an existing demo email{" "}
+              Try with an exist demo email{" "}
               <i className='fa-solid fa-envelope-circle-check'></i>
             </button>
           </div>

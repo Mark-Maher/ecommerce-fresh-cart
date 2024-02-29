@@ -2592,4 +2592,5 @@ footer .copy-right span {
 .existingEmail {
   transition: all 2s;
   color: #3bb208;
+  font-size: 15px;
 }
