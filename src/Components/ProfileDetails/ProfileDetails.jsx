@@ -6,8 +6,6 @@ import {useQuery} from "react-query";
 import {cartContext} from "../../Context/CartContext";
 function ProfileDetails() {
   let {Email, Password} = useContext(cartContext);
-  console.log(Email, Password);
-  console.log(localStorage.getItem("user"));
 
   return (
     <>
@@ -28,13 +26,13 @@ function ProfileDetails() {
               <p>
                 Email :{" "}
                 <span className='fw-bold'>
-                  {JSON.stringify(localStorage.getItem("userEmail"))}
+                  {localStorage.getItem("userEmail")}
                 </span>
               </p>
               <p>
                 Password :{" "}
                 <span className='fw-bold'>
-                  {JSON.stringify(localStorage.getItem("userPassword"))}
+                  {localStorage.getItem("userPassword")}
                 </span>
               </p>
               <p>

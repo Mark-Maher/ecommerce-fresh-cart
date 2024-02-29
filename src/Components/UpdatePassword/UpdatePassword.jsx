@@ -31,8 +31,7 @@ function UpdatePassword() {
       );
       setData(response);
       localStorage.setItem("userPassword", reqBody?.password);
-      console.log(response.data.user.email);
-      console.log(response.data.user.password);
+
       setloading(false);
       setbtnDisabled(false);
       return response.data;
@@ -42,13 +41,11 @@ function UpdatePassword() {
       console.log(error.response.data.message);
       setErrMsg(error.response.data.message);
       setbtnDisabled(false);
-      setPassMsg(null);
       setData(null);
+      setPassMsg(error?.response?.data?.errors?.msg);
     }
-    console.log(localStorage.setItem("userPassword", reqBody?.password));
   }
 
-  console.log(Data);
   const validationSchema = Yup.object({
     currentPassword: Yup.string()
       .matches(/^[A-Z][a-z0-9]{3,8}$/, "current password is required")
@@ -85,9 +82,12 @@ function UpdatePassword() {
           </h2>
           {Data?.data?.message === "success" ? (
             <div className='alert alert-success'>success</div>
-          ) : (
+          ) : errMsg ===
+            "User recently changed password! Please login again." ? (
             <div className='alert alert-danger'>{errMsg}</div>
-          )}
+          ) : errMsg === "fail" ? (
+            <div className='alert alert-danger'>{PassMsg}</div>
+          ) : null}
 
           <div className='animate__animated animate__zoomInDown'>
             {" "}
@@ -149,9 +149,6 @@ function UpdatePassword() {
             className='btn bg-main  mt-3 text-white animate__animated animate__fadeInLeft'
             type={btnDisabled ? "disabled" : "submit"}
             disabled={!(loginForm.isValid && loginForm.dirty)}
-            onClick={() => {
-              changePassword();
-            }}
           >
             {loading ? (
               <Spinner
