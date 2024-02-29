@@ -69,7 +69,7 @@ function MyOrders() {
                     <div className='me-5'>
                       {" "}
                       <p>Payment Method : {order.paymentMethodType} </p>
-                      <p>Payment Method : {order.user.email} </p>
+                      <p>Email : {order.user.email} </p>
                       <p>Total Order Price : {order.totalOrderPrice}</p>
                     </div>
                     <div className=''>

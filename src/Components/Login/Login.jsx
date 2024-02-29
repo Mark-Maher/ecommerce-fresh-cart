@@ -17,7 +17,7 @@ function Login() {
   const {setToken} = useContext(TokenContext);
   const navigate = useNavigate();
   function freeEmail() {
-    loginForm.values.email = "markmaher838@gmail.com";
+    loginForm.values.email = "markmaher383@gmail.com";
     loginForm.values.password = "Mark123";
   }
   // console.log(Email, Password);
@@ -139,7 +139,7 @@ function Login() {
                 freeEmail();
               }}
             >
-              Try with an existing email{" "}
+              Try with an existing demo email{" "}
               <i className='fa-solid fa-envelope-circle-check'></i>
             </button>
           </div>
