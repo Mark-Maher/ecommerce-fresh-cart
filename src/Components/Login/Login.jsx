@@ -18,8 +18,8 @@ function Login() {
   const navigate = useNavigate();
   // console.log(Email, Password);
   async function callLogin(reqBody) {
-    localStorage.setItem("userEmail", JSON.stringify(reqBody.email));
-    localStorage.setItem("userPassword", JSON.stringify(reqBody.password));
+    localStorage.setItem("userEmail", reqBody.email);
+    localStorage.setItem("userPassword", reqBody.password);
 
     // setEmail(reqBody?.email);
     // setPassword(reqBody?.password);

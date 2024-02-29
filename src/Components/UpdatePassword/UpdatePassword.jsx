@@ -45,8 +45,8 @@ function UpdatePassword() {
       setPassMsg(null);
       setData(null);
     }
+    console.log(localStorage.setItem("userPassword", reqBody?.password));
   }
-  console.log(errMsg);
 
   console.log(Data);
   const validationSchema = Yup.object({
@@ -85,11 +85,9 @@ function UpdatePassword() {
           </h2>
           {Data?.data?.message === "success" ? (
             <div className='alert alert-success'>success</div>
-          ) : Data?.data?.message === "fail" ? (
-            <div className='alert text-danger fw-bold'>{errMsg}</div>
-          ) : Data === null || "" || undefined ? (
-            <div className='alert text-danger fw-bold'>{errMsg}</div>
-          ) : null}
+          ) : (
+            <div className='alert alert-danger'>{errMsg}</div>
+          )}
 
           <div className='animate__animated animate__zoomInDown'>
             {" "}
