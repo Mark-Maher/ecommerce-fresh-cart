@@ -56,7 +56,7 @@ function MyOrders() {
                   Order Number : <span className='text-main'>{index + 1}</span>
                 </h3>
                 {/* <div className='col-md-3'> */}
-                <div className='mt-5 fw-bold border  p-3 rounded-9 _input_xebgj_29  mb-4 animate__animated animate__fadeInDown'>
+                <div className='mt-5 fw-bold border  p-3 rounded-9 _input_xebgj_29  mb-4 animate__animated animate__fadeInUp'>
                   <p className='text-start fw-bold fs-4'>
                     Order <span className='text-main fs-4'>{index + 1}</span>{" "}
                     Details{" "}
@@ -83,7 +83,7 @@ function MyOrders() {
                     <>
                       {" "}
                       <div
-                        className='col-md-3  mb-3 _input_xebgj_29 animate__animated animate__fadeInUpBig'
+                        className='col-md-3  mb-3 _input_xebgj_29 animate__animated animate__fadeInUp'
                         key={index}
                       >
                         {" "}

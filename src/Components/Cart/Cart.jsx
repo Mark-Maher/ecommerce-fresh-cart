@@ -165,7 +165,7 @@ function Cart() {
             {data?.data.products.map((item, index) => {
               return (
                 <div
-                  className='row py-4 border-bottom animate__animated animate__fadeInDownBig'
+                  className='row py-4 border-bottom animate__animated animate__fadeInUpBig'
                   key={index}
                 >
                   <div className='col-md-1'>

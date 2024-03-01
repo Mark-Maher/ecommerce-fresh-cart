@@ -148,7 +148,7 @@ function FeatureProducts() {
 
               <input
                 type='search'
-                className='my-5 w-100 py-2 mx-auto form-control border-success shadow-4-soft bg-body-secondary fw-bold'
+                className='my-5 w-100 py-2 mx-auto form-control border-success shadow-4-soft  searchInput'
                 placeholder='Search...'
                 onChange={(e) => {
                   setSearchData(e.currentTarget.value);
@@ -170,7 +170,7 @@ function FeatureProducts() {
                   })
                   .map((product) => {
                     return (
-                      <div className='col-md-3 ' key={product.id}>
+                      <div className='col-md-3  rounded-3 ' key={product.id}>
                         <div className='p-3  product '>
                           {" "}
                           <Link

@@ -12,6 +12,10 @@
 
 body {
   font-family: var(--font-family) !important;
+  background-image: url("./Project\ Assests/images/light-patten.svg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .rating-color {
   color: var(--rating-color);
@@ -2527,7 +2531,10 @@ footer .copy-right span {
 }
 
 /* ==========  Setting Box ========== */
-
+.searchInput {
+  background-color: #ffffff;
+  box-shadow: var(--shadow);
+}
 .setting-Box {
   transition: all 1s;
   width: 200px;
