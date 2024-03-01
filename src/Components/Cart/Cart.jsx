@@ -130,17 +130,17 @@ function Cart() {
             <div className='d-flex justify-content-between align-items-center'>
               {" "}
               <div>
-                <h2 className='fs-1 fw-bold my-2 text-main pb-3 '>
+                <h2 className='fs-1 fw-bold my-2 text-main pb-3 animate__animated animate__fadeInDown'>
                   Shop Cart:
                 </h2>
-                <p className='text-main fw-bold'>
+                <p className='text-main fw-bold animate__animated animate__fadeInUp'>
                   Total Cart Price :{" "}
                   {data?.data.totalCartPrice ? data.data.totalCartPrice : 0}
                 </p>
               </div>
               <div>
                 <button
-                  className='btn btn-danger'
+                  className='btn btn-danger animate__animated animate__fadeInDown'
                   onClick={() => {
                     clearallcart();
                   }}
@@ -162,7 +162,10 @@ function Cart() {
             </div>
             {data?.data.products.map((item, index) => {
               return (
-                <div className='row py-4 border-bottom' key={index}>
+                <div
+                  className='row py-4 border-bottom animate__animated animate__fadeInDownBig'
+                  key={index}
+                >
                   <div className='col-md-1'>
                     <img
                       src={item.product.imageCover}

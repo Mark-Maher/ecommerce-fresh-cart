@@ -87,7 +87,7 @@ function UpdateData() {
       {/* {isLoading && <Loader />} */}
       <div className='container my-5 '>
         <form onSubmit={loginForm.handleSubmit} className='formDesign p-5 '>
-          <h2 className='animate__animated animate__fadeInRight text-main mb-3 '>
+          <h2 className='animate__animated animate__fadeInDown text-main mb-3 '>
             Update Your Data :
           </h2>
           {Data?.data?.message === "success" ? (

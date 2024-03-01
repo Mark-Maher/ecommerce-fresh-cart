@@ -24,8 +24,10 @@ function Categories() {
         <Loader />
       ) : (
         <div className='container py-5'>
-          <h2 className='fs-1 fw-bold my-5 text-main pb-3 '>Categories </h2>
-          <div className='row g-4 gx-4 '>
+          <h2 className='fs-1 fw-bold my-5 text-main pb-3 animate__animated animate__fadeInDownBig'>
+            Categories{" "}
+          </h2>
+          <div className='row g-4 gx-4 animate__animated animate__fadeInUpBig'>
             {data?.data.data.map((item, id) => {
               return (
                 <div className='col-md-4 ng-star-inserted px-3' key={id}>

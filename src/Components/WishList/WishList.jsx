@@ -82,12 +82,14 @@ function WishList() {
         <div className='container'>
           {" "}
           <div className='container my-5 formDesign p-4 rounded-3 '>
-            <h2 className='fs-1 fw-bold my-2 text-main pb-3'>My Wish List:</h2>
+            <h2 className='fs-1 fw-bold my-2 text-main pb-3 animate__animated animate__fadeInDown'>
+              My Wish List:
+            </h2>
 
             {data?.data.map((item, index) => {
               return (
                 <div
-                  className='row py-4 g-4 border-bottom align-items-center'
+                  className='row py-4 g-4 border-bottom align-items-center animate__animated animate__fadeInUpBig'
                   key={index}
                 >
                   <div className='col-md-2'>

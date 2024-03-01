@@ -29,7 +29,7 @@ function CategoriesSlider() {
   return (
     <>
       <div className='container mb-5 '>
-        <h2 className='fs-2 fw-bold  subtitleName pb-3   '>
+        <h2 className='fs-2 fw-bold  subtitleName pb-3  animate__animated animate__fadeInUpBig'>
           Show Popular Catagories
         </h2>
         <Slider {...settings}>

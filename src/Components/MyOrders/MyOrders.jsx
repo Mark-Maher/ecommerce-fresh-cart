@@ -47,7 +47,7 @@ function MyOrders() {
         </div>
       ) : (
         <div className='container my-5 formDesign p-5 rounded-3 '>
-          <h2 className='fs-1 fw-bold my-2 text-main pb-5 text-center'>
+          <h2 className='fs-1 fw-bold my-2 text-main pb-5 text-center animate__animated animate__fadeInDown'>
             My Orders
           </h2>
           {orderData?.map((order, index) => (
@@ -57,7 +57,7 @@ function MyOrders() {
                   Order Number : <span className='text-main'>{index + 1}</span>
                 </h3>
                 {/* <div className='col-md-3'> */}
-                <div className='mt-5 fw-bold border  p-3 rounded-9 _input_xebgj_29  mb-4'>
+                <div className='mt-5 fw-bold border  p-3 rounded-9 _input_xebgj_29  mb-4 animate__animated animate__fadeInDown'>
                   <p className='text-start fw-bold fs-4'>
                     Order <span className='text-main fs-4'>{index + 1}</span>{" "}
                     Details{" "}
@@ -83,7 +83,7 @@ function MyOrders() {
                   return (
                     <>
                       {" "}
-                      <div className='col-md-3  mb-3 _input_xebgj_29 '>
+                      <div className='col-md-3  mb-3 _input_xebgj_29 animate__animated animate__fadeInUpBig'>
                         {" "}
                         <div
                           className={`d-flex align-items-center ${styles.flexColum}`}

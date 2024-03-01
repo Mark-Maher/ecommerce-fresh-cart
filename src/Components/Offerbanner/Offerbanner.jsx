@@ -40,7 +40,7 @@ function Offerbanner() {
               >
                 <div className='item'>
                   <div className='row g-3'>
-                    <div className='col-6  '>
+                    <div className='col-6  animate__animated animate__fadeInDown'>
                       <div className='text'>
                         <p>Upto 40% off </p>
                         <h3>
@@ -51,7 +51,7 @@ function Offerbanner() {
                         </Link>
                       </div>
                     </div>
-                    <div className='col-6  '>
+                    <div className='col-6  animate__animated animate__fadeInUp'>
                       <div className='image'>
                         <img
                           src={product.imageCover}
