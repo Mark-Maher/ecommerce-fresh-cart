@@ -8,12 +8,21 @@ import {Link, useNavigate} from "react-router-dom";
 import Swal from "sweetalert2";
 import {TokenContext} from "../../Context/Token";
 import {Helmet} from "react-helmet";
+import {cartContext} from "../../Context/CartContext";
 function Login() {
   const [errorMsg, setErrorMsg] = useState("");
   const [loading, setloading] = useState(false);
   const [btnDisabled, setbtnDisabled] = useState(false);
 
   const {setToken} = useContext(TokenContext);
+  const {
+    numOfCartItems,
+    getCart,
+    setNumOfCartItems,
+    getToWishlist,
+    numOfWishList,
+    setNumOfWishList,
+  } = useContext(cartContext);
   const navigate = useNavigate();
   function freeEmail() {
     loginForm.values.email = "markmaher383@gmail.com";
@@ -82,6 +91,18 @@ function Login() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
+    (async () => {
+      let data = await getCart();
+      setNumOfCartItems(data?.numOfCartItems);
+    })();
+  }, []);
+  useEffect(() => {
+    (async () => {
+      let data = await getToWishlist();
+      setNumOfWishList(data?.count);
+    })();
   }, []);
   return (
     <>
