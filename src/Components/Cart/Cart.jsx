@@ -97,7 +97,9 @@ function Cart() {
       deleteProduct(productID);
     }
   }
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       {loading ? (

@@ -25,6 +25,7 @@ function MyOrders() {
 
   useEffect(() => {
     getMyOrders();
+    window.scrollTo(0, 0);
   }, []);
 
   return (

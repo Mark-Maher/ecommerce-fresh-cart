@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./Categories.module.css";
 import {Helmet} from "react-helmet";
 import axios from "axios";
@@ -12,7 +12,9 @@ function Categories() {
     "CategoriesProducts",
     getProducts
   );
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       {" "}

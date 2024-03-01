@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styles from "./Brands.module.css";
 import {Helmet} from "react-helmet";
 import axios from "axios";
@@ -12,6 +12,9 @@ function Brands() {
     "CategoriesProducts",
     getProducts
   );
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       {" "}

@@ -6,7 +6,9 @@ import {useQuery} from "react-query";
 import {cartContext} from "../../Context/CartContext";
 function ProfileDetails() {
   let {Email, Password} = useContext(cartContext);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className='container'>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styles from "./Home.module.css";
 import MainSlider from "./../MainSlider/MainSlider";
 import CategoriesSlider from "../CategoriesSlider/CategoriesSlider";
@@ -8,6 +8,9 @@ import OurClients from "../OurClients/OurClients";
 import TrendingProducts from "../TrendingProducts/TrendingProducts";
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Helmet>

@@ -81,9 +81,10 @@ function Login() {
     validationSchema,
     onSubmit: callLogin,
   });
-  // useEffect(() => {
-  //   callLogin();
-  // }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Helmet>

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./UpdatePassword.module.css";
 import {Link, Navigate} from "react-router-dom";
 import {useFormik} from "formik";
@@ -72,6 +72,9 @@ function UpdatePassword() {
     validationSchema,
     onSubmit: changePassword,
   });
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       {" "}

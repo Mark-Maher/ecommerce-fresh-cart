@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./Register.module.css";
 import {useFormik} from "formik";
 import Spinner from "react-bootstrap/Spinner";
@@ -89,6 +89,9 @@ function Register() {
     validationSchema,
     onSubmit: callRegister,
   });
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Helmet>

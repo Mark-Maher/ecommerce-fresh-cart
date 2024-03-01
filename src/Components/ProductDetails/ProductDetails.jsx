@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import styles from "./ProductDetails.module.css";
 import {useQuery} from "react-query";
 import axios from "axios";
@@ -48,6 +48,9 @@ function ProductDetails() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <section className='py-5'>

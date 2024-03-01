@@ -54,8 +54,10 @@ function WishList() {
   }
   useEffect(() => {
     getWishListDetails();
+    window.scrollTo(0, 0);
     // deleteItem();
   }, []);
+
   return (
     <>
       {loading ? (

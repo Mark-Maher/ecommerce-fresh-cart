@@ -78,9 +78,10 @@ function UpdateData() {
     validationSchema,
     onSubmit: dataCheck,
   });
-  // useEffect(() => {
-  //   dataCheck();
-  // }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       {" "}
