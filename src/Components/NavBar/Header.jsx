@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import styles from "./Navbar.module.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -18,7 +18,7 @@ import {cartContext} from "../../Context/CartContext";
 
 function NavBar() {
   const {token, setToken} = useContext(TokenContext);
-
+  const [expanded, setExpanded] = useState(false);
   const {
     numOfCartItems,
     getCart,
@@ -45,32 +45,57 @@ function NavBar() {
       setNumOfWishList(data?.count);
     })();
   }, []);
-
+  const handleNavLinkClick = () => {
+    if (expanded) {
+      setExpanded(false);
+    }
+  };
   return (
-    <Navbar expand='lg' className='bg-body-tertiary py-3 fixed-top '>
+    <Navbar
+      expand='lg'
+      collapseOnSelect
+      className='bg-body-tertiary py-3 fixed-top '
+      expanded={expanded}
+      onSelect={() => setExpanded(false)}
+    >
       <Container>
-        <Navbar.Brand as={NavLink} to={"home"}>
+        <Navbar.Brand as={NavLink} to={"/home"}>
           <img src={logo} alt='webSite-logo' />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls='basic-navbar-nav'>
+        <Navbar.Toggle
+          aria-controls='responsive-navbar-nav'
+          onClick={() => setExpanded(!expanded)}
+        >
           <i className='fa-solid fa-bars'></i>
         </Navbar.Toggle>
-        <Navbar.Collapse id='basic-navbar-nav'>
+        <Navbar.Collapse id='responsive-navbar-nav'>
           {token ? (
             <Nav className='mx-auto ms-6'>
-              <Nav.Link as={NavLink} to={"home"}>
+              <Nav.Link as={NavLink} to={"/home"} onClick={handleNavLinkClick}>
                 Home
               </Nav.Link>{" "}
-              <Nav.Link as={NavLink} to={"products"}>
+              <Nav.Link
+                as={NavLink}
+                to={"products"}
+                onClick={handleNavLinkClick}
+              >
                 Products
               </Nav.Link>{" "}
-              <Nav.Link as={NavLink} to={"categories"}>
+              <Nav.Link
+                as={NavLink}
+                to={"categories"}
+                onClick={handleNavLinkClick}
+              >
                 Categories
               </Nav.Link>{" "}
-              <Nav.Link as={NavLink} to={"brands"}>
+              <Nav.Link as={NavLink} to={"brands"} onClick={handleNavLinkClick}>
                 Brands
               </Nav.Link>{" "}
-              <Nav.Link as={NavLink} to={"allorders"}>
+              <Nav.Link
+                as={NavLink}
+                to={"allorders"}
+                onClick={handleNavLinkClick}
+              >
                 All Orders{" "}
                 <i className='fa-solid fa-bag-shopping fs-5 ms-1'></i>
               </Nav.Link>{" "}
@@ -78,6 +103,7 @@ function NavBar() {
                 as={NavLink}
                 to={"wishlist"}
                 className='position-relative '
+                onClick={handleNavLinkClick}
               >
                 wish list <i className='fa-solid fa-heart fs-5 ms-1'></i>
                 {numOfWishList ? (
@@ -89,7 +115,12 @@ function NavBar() {
                   ""
                 )}
               </Nav.Link>{" "}
-              <Nav.Link as={NavLink} to={"cart"} className='position-relative '>
+              <Nav.Link
+                as={NavLink}
+                to={"cart"}
+                className='position-relative '
+                onClick={handleNavLinkClick}
+              >
                 Cart <i className='fa-solid fa-cart-plus fs-5'></i>{" "}
                 {numOfCartItems ? (
                   <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>
@@ -129,7 +160,11 @@ function NavBar() {
                     </Link>
                   </li>
                 </ul>
-                <Nav.Link as={NavLink} to={"profile"}>
+                <Nav.Link
+                  as={NavLink}
+                  to={"profile"}
+                  onClick={handleNavLinkClick}
+                >
                   Profile <i className='fa-solid fa-user fs-5 ms-2'></i>
                 </Nav.Link>{" "}
                 <Nav.Link onClick={logOut}>
@@ -162,10 +197,18 @@ function NavBar() {
                     </Link>
                   </li>
                 </ul>
-                <Nav.Link as={NavLink} to={"login"}>
+                <Nav.Link
+                  as={NavLink}
+                  to={"login"}
+                  onClick={handleNavLinkClick}
+                >
                   Login
                 </Nav.Link>{" "}
-                <Nav.Link as={NavLink} to={"register"}>
+                <Nav.Link
+                  as={NavLink}
+                  to={"register"}
+                  onClick={handleNavLinkClick}
+                >
                   Register <i className='fa-solid fa-user-plus'></i>
                 </Nav.Link>{" "}
               </>
