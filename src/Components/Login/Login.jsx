@@ -91,13 +91,15 @@ function Login() {
       </Helmet>
       <div className={`${styles.loginFormWidth} `}>
         <form onSubmit={loginForm.handleSubmit} className='formDesign p-5'>
-          <h2 className=' text-main mb-3 '>Login Now</h2>
+          <h2 className=' text-main mb-3 animate__animated animate__fadeInDown'>
+            Login Now
+          </h2>
           {errorMsg ? (
             <div className='alert alert-danger'>{errorMsg}</div>
           ) : null}
           <div className=''>
             {" "}
-            <div className='form-group mb-3'>
+            <div className='form-group mb-3 animate__animated animate__fadeInUp'>
               <input
                 type='text'
                 className=' _input_xebgj_29'
@@ -114,7 +116,7 @@ function Login() {
                 </div>
               ) : null}
             </div>
-            <div className='form-group mb-2'>
+            <div className='form-group mb-2 animate__animated animate__fadeInUp'>
               <input
                 type='password'
                 className='_input_xebgj_29 '

@@ -92,19 +92,23 @@ function Register() {
   return (
     <>
       <Helmet>
-        <title>Register Page</title>
+        <title className='animate__animated animate__fadeInDownBig'>
+          Register Page
+        </title>
       </Helmet>
       <div className={`${styles.FormWidth} mt-5`}>
         {errorMsg ? <div className='alert alert-danger'>{errorMsg}</div> : null}
 
         <form onSubmit={registerForm.handleSubmit} className='formDesign p-5'>
-          <h2 className='text-main mb-3 '>Register Now</h2>
+          <h2 className='text-main mb-3 text-main mb-3 animate__animated animate__fadeInDown'>
+            Register Now
+          </h2>
           <div className=' overflow-hidden p-3'>
             {" "}
             <div className='form-group mb-2'>
               <input
                 type='text'
-                className=' _input_xebgj_29'
+                className=' _input_xebgj_29 animate__animated animate__fadeInUp'
                 id='fullName'
                 name='name'
                 value={registerForm.values.name}
@@ -121,7 +125,7 @@ function Register() {
             <div className='form-group mb-2'>
               <input
                 type='text'
-                className='_input_xebgj_29'
+                className='_input_xebgj_29 animate__animated animate__fadeInUp'
                 id='email'
                 name='email'
                 value={registerForm.values.email}
@@ -138,7 +142,7 @@ function Register() {
             <div className='form-group mb-2'>
               <input
                 type='password'
-                className='_input_xebgj_29'
+                className='_input_xebgj_29 animate__animated animate__fadeInUp'
                 id='password'
                 name='password'
                 value={registerForm.values.password}
@@ -155,7 +159,7 @@ function Register() {
             <div className='form-group mb-2 '>
               <input
                 type='password'
-                className='_input_xebgj_29'
+                className='_input_xebgj_29 animate__animated animate__fadeInUp'
                 id='rePassword'
                 name='rePassword'
                 value={registerForm.values.rePassword}
@@ -173,7 +177,7 @@ function Register() {
             <div className='form-group mb-2'>
               <input
                 type='tel'
-                className='_input_xebgj_29'
+                className='_input_xebgj_29 animate__animated animate__fadeInUp'
                 id='phone'
                 name='phone'
                 value={registerForm.values.phone}
