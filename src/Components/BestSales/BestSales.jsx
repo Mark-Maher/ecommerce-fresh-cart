@@ -156,7 +156,7 @@ function BestSales() {
                           >
                             {" "}
                             <i
-                              className='fa-solid fa-heart fs-2 border-0'
+                              className='fa-solid fa-heart fs-2 border-0 text-black'
                               onClick={() => addProductToWishlist(product.id)}
                             ></i>
                           </button>

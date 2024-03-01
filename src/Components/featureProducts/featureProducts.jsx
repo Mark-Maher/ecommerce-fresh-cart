@@ -45,9 +45,11 @@ function FeatureProducts() {
       getToWishlist();
       setLoading(false);
       toast.success(data.message, {theme: "colored"});
+      setDisplayBtn(false);
     } else {
       toast.error("failed to add product", {theme: "colored"});
       setLoading(false);
+      setDisplayBtn(false);
     }
   }
   async function deleteItem(productId) {
@@ -229,7 +231,7 @@ function FeatureProducts() {
                               >
                                 {" "}
                                 <i
-                                  className='fa-solid fa-heart fs-2 border-0'
+                                  className='fa-solid fa-heart fs-2 border-0 text-black'
                                   onClick={() =>
                                     addProductToWishlist(product.id)
                                   }
