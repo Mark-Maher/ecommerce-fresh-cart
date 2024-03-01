@@ -70,7 +70,6 @@ function TrendingProducts() {
       let {data} = await axios.get(
         "https://ecommerce.routemisr.com/api/v1/products"
       );
-      console.log(data);
       return data.data;
     } catch (error) {
       console.log(error);
@@ -125,7 +124,8 @@ function TrendingProducts() {
             <h2>
               Trending{" "}
               <span>
-                Products <i class='fa-solid fa-arrow-trend-up fs-1 ms-1'></i>
+                Products{" "}
+                <i className='fa-solid fa-arrow-trend-up fs-1 ms-1'></i>
               </span>
             </h2>
             {isLoading ? <Loader /> : ""}

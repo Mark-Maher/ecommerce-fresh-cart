@@ -9,11 +9,8 @@ function Offerbanner() {
       let {data} = await axios.get(
         "https://ecommerce.routemisr.com/api/v1/products"
       );
-      console.log(data);
       return data.data;
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   }
   let {data} = useQuery("trandingProducts", getOfferProducts);
 

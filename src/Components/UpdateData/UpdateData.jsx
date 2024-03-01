@@ -40,7 +40,6 @@ function UpdateData() {
         "userEmail",
         JSON.stringify(response.data.user.email)
       );
-      console.log(response.data.user.email);
       setloading(false);
       setbtnDisabled(false);
       return response.data;
@@ -51,12 +50,7 @@ function UpdateData() {
       setbtnDisabled(false);
     }
   }
-  // let {data, isError, isLoading, error, isFetching} = useQuery(
-  //   "FeatureProducts",
-  //   dataCheck
-  // );
-  // console.log(data?.data.message, isLoading);
-  console.log(Data);
+
   const validationSchema = Yup.object({
     name: Yup.string()
       .min(3, "name is too short")

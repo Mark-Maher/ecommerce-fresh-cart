@@ -55,17 +55,13 @@ function BestSales() {
       let {data} = await axios.get(
         "https://ecommerce.routemisr.com/api/v1/products"
       );
-      console.log(data);
       return data.data;
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   }
   let {data, isLoading, isFetching} = useQuery(
     "trandingProducts",
     getTrandingProducts
   );
-  console.log(isFetching);
   async function deleteItem(productId) {
     setDisplayBtn(true);
 
@@ -87,7 +83,6 @@ function BestSales() {
 
       return response.data;
     } catch (error) {
-      console.error("Error adding product to cart:", error);
       throw error;
     }
   }
@@ -99,8 +94,6 @@ function BestSales() {
       setLoading(false);
     } catch (error) {
       setWishData(null);
-
-      console.error("Error getting cart details:", error);
     }
   }
   return (
@@ -112,7 +105,8 @@ function BestSales() {
             <h2>
               Best{" "}
               <span>
-                Rating <i class='fa-solid fa-arrow-up-wide-short fs-1 ms-1'></i>
+                Rating{" "}
+                <i className='fa-solid fa-arrow-up-wide-short fs-1 ms-1'></i>
               </span>
               {/* <span> (highest rate)</span> */}
             </h2>

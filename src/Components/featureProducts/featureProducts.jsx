@@ -37,7 +37,6 @@ function FeatureProducts() {
   function handleCategory(category) {
     setWordCategory(category);
   }
-  console.log(wordCategory);
   async function addProductToWishlist(Id) {
     setLoading(true);
     setDisplayBtn(true);
@@ -71,7 +70,6 @@ function FeatureProducts() {
       getWishListDetails();
       return response.data;
     } catch (error) {
-      console.error("Error adding product to cart:", error);
       setDisplayBtn(false);
 
       throw error;
@@ -85,8 +83,6 @@ function FeatureProducts() {
       setLoading(false);
     } catch (error) {
       setWishData(null);
-
-      console.error("Error getting cart details:", error);
     }
   }
   function getProducts() {
@@ -96,7 +92,6 @@ function FeatureProducts() {
     "FeatureProducts",
     getProducts
   );
-  console.log(data?.data.data);
   return (
     <>
       <section className='py-5'>

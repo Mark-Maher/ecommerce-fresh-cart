@@ -9,11 +9,30 @@ import TrendingProducts from "../TrendingProducts/TrendingProducts";
 import {cartContext} from "../../Context/CartContext";
 
 function Home() {
-  const {getCart, getToWishlist} = useContext(cartContext);
+  const {
+    numOfCartItems,
+    getCart,
+    setNumOfCartItems,
+    getToWishlist,
+    numOfWishList,
+    setNumOfWishList,
+  } = useContext(cartContext);
   useEffect(() => {
     getCart();
     getToWishlist();
     window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
+    (async () => {
+      let data = await getCart();
+      setNumOfCartItems(data?.numOfCartItems);
+    })();
+  }, []);
+  useEffect(() => {
+    (async () => {
+      let data = await getToWishlist();
+      setNumOfWishList(data?.count);
+    })();
   }, []);
   return (
     <>

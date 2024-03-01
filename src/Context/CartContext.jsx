@@ -36,7 +36,6 @@ export default function CartContextProvider({children}) {
       return response?.data;
     } catch (error) {
       setNumOfCartItems(0);
-      console.error("Error adding product to cart:", error);
     }
   }
   async function deleteItem(productId) {

@@ -18,6 +18,7 @@ import {cartContext} from "../../Context/CartContext";
 
 function NavBar() {
   const {token, setToken} = useContext(TokenContext);
+
   const [expanded, setExpanded] = useState(false);
   const {
     numOfCartItems,

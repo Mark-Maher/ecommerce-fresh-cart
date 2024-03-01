@@ -16,8 +16,6 @@ function MyOrders() {
     let {data} = await axios.get(
       `https://ecommerce.routemisr.com/api/v1/orders/user/${id}`
     );
-    console.log(data);
-    console.log(data.length);
     setOrederData(data);
 
     setLoading(false);
@@ -84,7 +82,10 @@ function MyOrders() {
                   return (
                     <>
                       {" "}
-                      <div className='col-md-3  mb-3 _input_xebgj_29 animate__animated animate__fadeInUpBig'>
+                      <div
+                        className='col-md-3  mb-3 _input_xebgj_29 animate__animated animate__fadeInUpBig'
+                        key={index}
+                      >
                         {" "}
                         <div
                           className={`d-flex align-items-center ${styles.flexColum}`}
