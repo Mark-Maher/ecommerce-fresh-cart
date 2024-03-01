@@ -12,8 +12,7 @@
 
 body {
   font-family: var(--font-family) !important;
-  background-image: url("./Project\ Assests/images/light-patten.svg");
-  background-position: center;
+  background-image: url("./Project Assests/images/light-patten.svg");
   background-size: cover;
   background-attachment: fixed;
 }
