@@ -32,6 +32,7 @@ function NavBar() {
     localStorage.removeItem("user");
     setToken(null);
     navigate("/login");
+    handleNavLinkClick();
   }
   useEffect(() => {
     (async () => {
