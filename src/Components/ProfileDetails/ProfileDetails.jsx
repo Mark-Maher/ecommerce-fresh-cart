@@ -19,9 +19,7 @@ function ProfileDetails() {
               </span>
             </div>
             <div>
-              <h2 className='animate__animated animate__fadeInRight text-main mb-3 '>
-                Your Info
-              </h2>
+              <h2 className=' text-main mb-3 '>Your Info</h2>
 
               <p>
                 Email :{" "}

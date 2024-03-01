@@ -91,13 +91,11 @@ function Login() {
       </Helmet>
       <div className={`${styles.loginFormWidth} `}>
         <form onSubmit={loginForm.handleSubmit} className='formDesign p-5'>
-          <h2 className='animate__animated animate__fadeInRight text-main mb-3 '>
-            Login Now
-          </h2>
+          <h2 className=' text-main mb-3 '>Login Now</h2>
           {errorMsg ? (
             <div className='alert alert-danger'>{errorMsg}</div>
           ) : null}
-          <div className='animate__animated animate__zoomInDown'>
+          <div className=''>
             {" "}
             <div className='form-group mb-3'>
               <input
@@ -145,7 +143,7 @@ function Login() {
           </div>
 
           <button
-            className='btn bg-main d-block me-auto mt-4 text-white animate__animated animate__fadeInLeft'
+            className='btn bg-main d-block me-auto mt-4 text-white '
             type='submit'
             disabled={!(loginForm.isValid && loginForm.dirty)}
           >
@@ -162,7 +160,7 @@ function Login() {
               "Login"
             )}
           </button>
-          <p className='mt-3 animate__animated animate__fadeInRight'>
+          <p className='mt-3 '>
             <Link
               className='text-start my-3 cursor-pointer pass text-decoration-none text-dark '
               to={"/forgetpassword"}
@@ -170,7 +168,7 @@ function Login() {
               Forget Your Password ?
             </Link>
           </p>
-          <p className='text-start my-3 animate__animated animate__fadeInRight'>
+          <p className='text-start my-3 '>
             Don't have an account?{" "}
             <Link to={"/register"} className='text-main fw-bold'>
               Register Now

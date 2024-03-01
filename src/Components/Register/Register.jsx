@@ -98,10 +98,8 @@ function Register() {
         {errorMsg ? <div className='alert alert-danger'>{errorMsg}</div> : null}
 
         <form onSubmit={registerForm.handleSubmit} className='formDesign p-5'>
-          <h2 className='text-main mb-3 animate__animated animate__fadeInLeft'>
-            Register Now
-          </h2>
-          <div className='animate__animated animate__zoomInDown overflow-hidden p-3'>
+          <h2 className='text-main mb-3 '>Register Now</h2>
+          <div className=' overflow-hidden p-3'>
             {" "}
             <div className='form-group mb-2'>
               <input
@@ -190,7 +188,7 @@ function Register() {
               ) : null}
             </div>
           </div>
-          <div className='text-end animate__animated animate__fadeInRight'>
+          <div className='text-end '>
             <button
               className='btn bg-main me-2 mt-3 text-white'
               type='reset'

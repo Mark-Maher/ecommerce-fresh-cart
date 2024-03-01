@@ -81,7 +81,7 @@ function WishList() {
       ) : (
         <div className='container'>
           {" "}
-          <div className='container my-5 formDesign p-4 rounded-3 animate__animated animate__fadeInRightBig'>
+          <div className='container my-5 formDesign p-4 rounded-3 '>
             <h2 className='fs-1 fw-bold my-2 text-main pb-3'>My Wish List:</h2>
 
             {data?.data.map((item, index) => {

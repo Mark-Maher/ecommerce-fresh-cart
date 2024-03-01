@@ -126,7 +126,7 @@ function Cart() {
       ) : (
         <div className='container'>
           {" "}
-          <div className='container my-5 formDesign p-4 rounded-3 animate__animated animate__fadeInRightBig'>
+          <div className='container my-5 formDesign p-4 rounded-3 '>
             <div className='d-flex justify-content-between align-items-center'>
               {" "}
               <div>
