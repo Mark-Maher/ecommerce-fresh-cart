@@ -19,6 +19,7 @@ function FeatureProducts() {
   let [wordCategory, setWordCategory] = useState("All's");
   let [heartColor, setHeartColor] = useState(false);
   let [displaybtn, setDisplayBtn] = useState(false);
+  let [wishdata, setWishData] = useState(null);
 
   const {addToCart, addToWishlist, wishlist, getToWishlist} =
     useContext(cartContext);
@@ -39,6 +40,7 @@ function FeatureProducts() {
   console.log(wordCategory);
   async function addProductToWishlist(Id) {
     setLoading(true);
+    setDisplayBtn(true);
     let data = await addToWishlist(Id);
     if (data.status === "success") {
       getToWishlist();
@@ -49,7 +51,44 @@ function FeatureProducts() {
       setLoading(false);
     }
   }
+  async function deleteItem(productId) {
+    setDisplayBtn(true);
 
+    try {
+      const response = await axios.delete(
+        `https://ecommerce.routemisr.com/api/v1/wishlist/${productId}`,
+        {
+          headers: {token: localStorage.getItem("user")},
+        }
+      );
+      toast.error("Product deleted successfully", {theme: "colored"});
+      setDisplayBtn(false);
+
+      if (data.status === "success") {
+        setWishData(data);
+      }
+
+      getWishListDetails();
+      return response.data;
+    } catch (error) {
+      console.error("Error adding product to cart:", error);
+      setDisplayBtn(false);
+
+      throw error;
+    }
+  }
+  async function getWishListDetails() {
+    try {
+      setLoading(true);
+      let data = await getToWishlist();
+      setWishData(data);
+      setLoading(false);
+    } catch (error) {
+      setWishData(null);
+
+      console.error("Error getting cart details:", error);
+    }
+  }
   function getProducts() {
     return axios.get(`https://ecommerce.routemisr.com/api/v1/products`);
   }
@@ -179,15 +218,28 @@ function FeatureProducts() {
                             {wishlist.some(
                               (hearted) => hearted?.id === product.id
                             ) ? (
-                              <i
-                                className='fa-solid fa-heart text-danger fs-2 border-0 cursor-pointer'
-                                onClick={() => addProductToWishlist(product.id)}
-                              ></i>
+                              <button
+                                className='border-0 bg-white'
+                                disabled={displaybtn ? true : false}
+                              >
+                                <i
+                                  className='fa-solid fa-heart text-danger fs-2 border-0'
+                                  onClick={() => deleteItem(product.id)}
+                                ></i>
+                              </button>
                             ) : (
-                              <i
-                                className='fa-solid fa-heart fs-2 border-0 cursor-pointer'
-                                onClick={() => addProductToWishlist(product.id)}
-                              ></i>
+                              <button
+                                className='border-0 bg-white'
+                                disabled={displaybtn ? true : false}
+                              >
+                                {" "}
+                                <i
+                                  className='fa-solid fa-heart fs-2 border-0'
+                                  onClick={() =>
+                                    addProductToWishlist(product.id)
+                                  }
+                                ></i>
+                              </button>
                             )}
                           </div>
                         </div>

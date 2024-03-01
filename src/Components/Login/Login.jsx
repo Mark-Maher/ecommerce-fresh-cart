@@ -41,6 +41,7 @@ function Login() {
     if ((data.message = "success")) {
       // alert("Success!");
       localStorage.setItem("user", data.token);
+
       setToken(data.token);
       let timerInterval;
       Swal.fire({

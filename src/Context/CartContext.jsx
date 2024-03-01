@@ -117,6 +117,7 @@ export default function CartContextProvider({children}) {
       console.error("Error adding product to cart:", error);
     }
   }
+
   useEffect(() => {
     (async () => {
       let data = await getCart();

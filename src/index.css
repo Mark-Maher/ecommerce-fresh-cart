@@ -601,7 +601,7 @@ body {
 .Ttanding-products .trand-item .trand-product-info .fa-heart {
   top: 0;
   right: 0;
-  opacity: 0;
+  opacity: 1;
   width: 35px;
   height: 35px;
   margin: 20px;
@@ -658,7 +658,8 @@ body {
 }
 
 .Ttanding-products .trand-item:hover .trand-product-info i {
-  opacity: 1;
+  /* opacity: 1; */
+  scale: 1.15;
   transition: all 0.5s;
 }
 

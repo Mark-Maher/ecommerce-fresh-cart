@@ -14,6 +14,7 @@ function TrendingProducts() {
   let [loading, setLoading] = useState(false);
   let [heartColor, setHeartColor] = useState(false);
   let [displaybtn, setDisplayBtn] = useState(false);
+  let [wishdata, setWishData] = useState(null);
 
   const {addToCart, addToWishlist, wishlist, getToWishlist} =
     useContext(cartContext);
@@ -43,15 +44,17 @@ function TrendingProducts() {
   }
   async function addProductToWishlist(Id) {
     setLoading(true);
-
+    setDisplayBtn(true);
     let data = await addToWishlist(Id);
     if (data.status === "success") {
       getToWishlist();
       setLoading(false);
       toast.success(data.message, {theme: "colored"});
+      setDisplayBtn(false);
     } else {
       toast.error("failed to add product", {theme: "colored"});
       setHeartColor(false);
+      setDisplayBtn(false);
     }
   }
 
@@ -74,6 +77,45 @@ function TrendingProducts() {
     }
   }
   let {data, isLoading} = useQuery("trandingProducts", getTrandingProducts);
+  async function deleteItem(productId) {
+    setDisplayBtn(true);
+    try {
+      const response = await axios.delete(
+        `https://ecommerce.routemisr.com/api/v1/wishlist/${productId}`,
+        {
+          headers: {token: localStorage.getItem("user")},
+        }
+      );
+      getWishListDetails();
+      toast.error("Product deleted successfully", {theme: "colored"});
+      setDisplayBtn(false);
+      if (data.status === "success") {
+        setWishData(data);
+      }
+
+      return response.data;
+    } catch (error) {
+      console.error("Error adding product to cart:", error);
+      setDisplayBtn(false);
+      throw error;
+    }
+  }
+  async function getWishListDetails() {
+    setDisplayBtn(true);
+
+    try {
+      setLoading(true);
+      let data = await getToWishlist();
+      setWishData(data);
+      setLoading(false);
+      setDisplayBtn(false);
+    } catch (error) {
+      setWishData(null);
+      setDisplayBtn(false);
+
+      console.error("Error getting cart details:", error);
+    }
+  }
   return (
     <>
       {" "}
@@ -119,15 +161,26 @@ function TrendingProducts() {
                       {wishlist.some(
                         (hearted) => hearted?.id === product.id
                       ) ? (
-                        <i
-                          className='fa-solid fa-heart text-danger fs-2 border-0'
-                          onClick={() => addProductToWishlist(product.id)}
-                        ></i>
+                        <button
+                          className='border-0 bg-white'
+                          disabled={displaybtn ? true : false}
+                        >
+                          <i
+                            className='fa-solid fa-heart text-danger fs-2 border-0'
+                            onClick={() => deleteItem(product.id)}
+                          ></i>
+                        </button>
                       ) : (
-                        <i
-                          className='fa-solid fa-heart fs-2 border-0'
-                          onClick={() => addProductToWishlist(product.id)}
-                        ></i>
+                        <button
+                          className='border-0 bg-white'
+                          disabled={displaybtn ? true : false}
+                        >
+                          {" "}
+                          <i
+                            className='fa-solid fa-heart fs-2 border-0'
+                            onClick={() => addProductToWishlist(product.id)}
+                          ></i>
+                        </button>
                       )}
                     </div>
 
