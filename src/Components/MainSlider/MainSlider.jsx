@@ -22,15 +22,16 @@ function MainSlider() {
           {" "}
           <div className='container my-5'>
             <div className='row gy-5 '>
-              <div className='col-md-8 animate__animated animate__fadeInDownBig '>
+              <div className='col-md-9 animate__animated animate__fadeInDownBig p-1  '>
                 {" "}
                 <Slider {...settings}>
                   <img src={img3} alt='' className='w-100' />
                   <img src={img1} alt='' className='w-100' />
-                  <img src={img2} alt='' className='w-100' />
+                  <img src={img2} alt='' className='w-100 ' />
                 </Slider>
               </div>
-              <div className='col-md-4 animate__animated animate__fadeInUpBig'>
+              <div className='col-md-3 animate__animated animate__fadeInUpBig p-1'>
+                <img src={img3} alt='' className='w-100' />
                 <img src={img1} alt='' className='w-100' />
                 <img src={img2} alt='' className='w-100' />
               </div>
