@@ -132,7 +132,7 @@ function BestSales() {
                         <h3 className='h6 d-inline-block text-main fw-bolder'>
                           {product.title.split(" ").slice(0, 2)}
                         </h3>
-                        <i className='fa fa-star text-warning'>
+                        <i className='fa fa-star text-warning '>
                           {" "}
                           <span> {product.ratingsAverage}</span>
                         </i>

@@ -13,7 +13,7 @@
 body {
   font-family: var(--font-family) !important;
   background-image: url("./Project Assests/images/light-patten.png");
-  background-size: 120%;
+  background-size: 100%;
   background-position: center;
 }
 .rating-color {
