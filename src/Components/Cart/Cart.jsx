@@ -144,7 +144,24 @@ function Cart() {
                 <button
                   className='btn btn-danger animate__animated animate__fadeInDown'
                   onClick={() => {
-                    clearallcart();
+                    Swal.fire({
+                      title: "Are you sure?",
+                      text: "You won't be able to revert this!",
+                      icon: "warning",
+                      showCancelButton: true,
+                      confirmButtonColor: "#d33",
+                      cancelButtonColor: "#3085d6",
+                      confirmButtonText: "Yes, delete it!",
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+                        clearallcart();
+                        Swal.fire({
+                          title: "Deleted!",
+                          text: "Your file has been deleted.",
+                          icon: "success",
+                        });
+                      }
+                    });
                   }}
                 >
                   {clearloading ? (
@@ -205,9 +222,9 @@ function Cart() {
                       <button
                         className='btn'
                         onClick={() => {
-                          if (item.count >= 1) {
+                          if (item.count > 1) {
                             updateProduct(item.product._id, item.count - 1);
-                          } else {
+                          } else if (item.count === 1) {
                             Swal.fire({
                               title: "Are you sure?",
                               text: "You won't be able to revert this!",
