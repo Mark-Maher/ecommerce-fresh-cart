@@ -27,9 +27,9 @@ function WishList() {
   async function addProductToCart(Id) {
     let data = await addToCart(Id);
     if (data.status === "success") {
-      toast.success(data.message, {theme: "colored"});
+      toast.success(data.message, {theme: "colored", autoClose: 2000});
     } else {
-      toast.error("failed to add product", {theme: "colored"});
+      toast.error("failed to add product", {theme: "colored", autoClose: 2000});
     }
   }
   async function deleteItem(productId) {
@@ -41,7 +41,10 @@ function WishList() {
         }
       );
       if (data.status === "success") {
-        toast.error("Product deleted successfully", {theme: "colored"});
+        toast.error("Product deleted successfully", {
+          theme: "colored",
+          autoClose: 2000,
+        });
         setData(data);
       }
 

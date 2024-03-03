@@ -35,10 +35,10 @@ function TrendingProducts() {
     setDisplayBtn(true);
     let data = await addToCart(Id);
     if (data.status === "success") {
-      toast.success(data.message, {theme: "colored"});
+      toast.success(data.message, {theme: "colored", autoClose: 2000});
       setDisplayBtn(false);
     } else {
-      toast.error("failed to add product", {theme: "colored"});
+      toast.error("failed to add product", {theme: "colored", autoClose: 2000});
       setDisplayBtn(false);
     }
   }
@@ -49,10 +49,10 @@ function TrendingProducts() {
     if (data.status === "success") {
       getToWishlist();
       setLoading(false);
-      toast.success(data.message, {theme: "colored"});
+      toast.success(data.message, {theme: "colored", autoClose: 2000});
       setDisplayBtn(false);
     } else {
-      toast.error("failed to add product", {theme: "colored"});
+      toast.error("failed to add product", {theme: "colored", autoClose: 2000});
       setHeartColor(false);
       setDisplayBtn(false);
     }
@@ -86,7 +86,10 @@ function TrendingProducts() {
         }
       );
       getWishListDetails();
-      toast.error("Product deleted successfully", {theme: "colored"});
+      toast.error("Product deleted successfully", {
+        theme: "colored",
+        autoClose: 2000,
+      });
       setDisplayBtn(false);
       if (data.status === "success") {
         setWishData(data);

@@ -33,7 +33,7 @@ function Cart() {
         {headers: {token: localStorage.getItem("user")}}
       );
       console.log(data);
-      toast.success(data.data.message, {theme: "colored"});
+      toast.success(data.data.message, {theme: "colored", autoClose: 2000});
       setClearLoading(false);
       getCartDetails();
     } catch (e) {
@@ -76,7 +76,10 @@ function Cart() {
     let data = await deleteItem(id);
     console.log(data);
     if (data.status === "success") {
-      toast.error("Product deleted successfully", {theme: "colored"});
+      toast.error("Product deleted successfully", {
+        theme: "colored",
+        autoClose: 2000,
+      });
       setNumOfCartItems(data.numOfCartItems);
       setData(data);
       setDeleteLoading(false);
@@ -86,7 +89,10 @@ function Cart() {
     let data = await updateQuantity(id, count);
     console.log(data);
     if (data.status === "success") {
-      toast.success("Product updated successfully", {theme: "colored"});
+      toast.success("Product updated successfully", {
+        theme: "colored",
+        autoClose: 2000,
+      });
       setNumOfCartItems(data.numOfCartItems);
       setData(data);
     }
